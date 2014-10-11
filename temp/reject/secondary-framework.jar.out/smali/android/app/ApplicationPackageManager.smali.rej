@@ -1,0 +1,46 @@
+*** ApplicationPackageManager.smali	2014-10-11 10:21:02.000209305 +1100
+--- ApplicationPackageManager.smali	2014-10-11 10:18:01.104205381 +1100
+***************
+*** 1476,1492 ****
+      goto :goto_0
+  .end method
+  
+  .method public getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
+      .locals 2
+  
+      .prologue
+!     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+! 
+!     move-result-object v0
+  
+!     const v1, 0x1080093
+  
+!     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+  
+      move-result-object v0
+  
+--- 1476,1499 ----
+      goto :goto_0
+  .end method
+  
++ .method getContext()Landroid/app/ContextImpl;
++     .locals 1
++ 
++     .prologue
++     iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
++ 
++     return-object v0
++ .end method
++ 
+  .method public getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
+      .locals 2
+  
+      .prologue
+!     iget-object v0, p0, Landroid/app/ApplicationPackageManager;->mContext:Landroid/app/ContextImpl;
+  
+!     const-string v1, "sym_def_app_icon.png"
+  
+!     invoke-static {v0, v1}, Lmiui/content/res/IconCustomizer;->getCustomizedIcon(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/BitmapDrawable;
+  
+      move-result-object v0
+  

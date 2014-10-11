@@ -1,0 +1,64 @@
+*** CallerInfo.smali	2014-10-11 10:20:00.612207973 +1100
+--- CallerInfo.smali	2014-10-11 10:17:01.184204081 +1100
+***************
+*** 96,111 ****
+  .end method
+  
+  .method public constructor <init>()V
+!     .locals 1
+  
+      .prologue
+!     const/4 v0, 0x0
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
+!     iput-boolean v0, p0, Lcom/android/internal/telephony/CallerInfo;->mIsEmergency:Z
+  
+!     iput-boolean v0, p0, Lcom/android/internal/telephony/CallerInfo;->mIsVoiceMail:Z
+  
+      return-void
+  .end method
+--- 106,127 ----
+  .end method
+  
+  .method public constructor <init>()V
+!     .locals 2
+  
+      .prologue
+!     const/4 v1, 0x0
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
+!     new-instance v0, Lmiui/telephony/ExtraCallerInfo;
+  
+!     invoke-direct {v0}, Lmiui/telephony/ExtraCallerInfo;-><init>()V
+! 
+!     iput-object v0, p0, Lcom/android/internal/telephony/CallerInfo;->extra:Lmiui/telephony/ExtraCallerInfo;
+! 
+!     iput-boolean v1, p0, Lcom/android/internal/telephony/CallerInfo;->mIsEmergency:Z
+! 
+!     iput-boolean v1, p0, Lcom/android/internal/telephony/CallerInfo;->mIsVoiceMail:Z
+  
+      return-void
+  .end method
+***************
+*** 473,478 ****
+  
+      iput-boolean v5, v2, Lcom/android/internal/telephony/CallerInfo;->contactExists:Z
+  
+      .end local v0           #columnIndex:I
+      :cond_6
+      :goto_3
+--- 491,502 ----
+  
+      iput-boolean v5, v2, Lcom/android/internal/telephony/CallerInfo;->contactExists:Z
+  
++     invoke-static {p0, v2, p2}, Lmiui/telephony/ExtraCallerInfo;->getExtraCallerInfo(Landroid/content/Context;Lcom/android/internal/telephony/CallerInfo;Landroid/database/Cursor;)Lmiui/telephony/ExtraCallerInfo;
++ 
++     move-result-object v4
++ 
++     iput-object v4, v2, Lcom/android/internal/telephony/CallerInfo;->extra:Lmiui/telephony/ExtraCallerInfo;
++ 
+      .end local v0           #columnIndex:I
+      :cond_6
+      :goto_3

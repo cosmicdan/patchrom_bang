@@ -1,0 +1,31 @@
+*** ./smali/android/view/inputmethod/InputMethodManager.smali	2014-10-11 10:21:15.988209608 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/view/inputmethod/InputMethodManager.smali	2014-10-11 10:18:14.484205671 +1100
+***************
+*** 9,15 ****
+          Landroid/view/inputmethod/InputMethodManager$PendingEvent;,
+          Landroid/view/inputmethod/InputMethodManager$FinishedEventCallback;,
+          Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;,
+!         Landroid/view/inputmethod/InputMethodManager$H;
+      }
+  .end annotation
+  
+--- 9,16 ----
+          Landroid/view/inputmethod/InputMethodManager$PendingEvent;,
+          Landroid/view/inputmethod/InputMethodManager$FinishedEventCallback;,
+          Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;,
+!         Landroid/view/inputmethod/InputMethodManager$H;,
+!         Landroid/view/inputmethod/InputMethodManager$Injector;
+      }
+  .end annotation
+  
+***************
+*** 4545,4550 ****
+--- 4546,4553 ----
+  
+      :cond_d
+      :goto_3
++     invoke-static {p0, v11}, Landroid/view/inputmethod/InputMethodManager$Injector;->handleBindLose(Landroid/view/inputmethod/InputMethodManager;Lcom/android/internal/view/InputBindResult;)V
++ 
+      iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager;->mCurMethod:Lcom/android/internal/view/IInputMethodSession;
+  
+      if-eqz v1, :cond_e

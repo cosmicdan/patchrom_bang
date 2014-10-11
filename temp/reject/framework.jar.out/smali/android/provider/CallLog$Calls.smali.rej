@@ -1,0 +1,70 @@
+*** CallLog$Calls.smali	2014-10-11 10:20:40.692208843 +1100
+--- CallLog$Calls.smali	2014-10-11 10:17:37.456204868 +1100
+***************
+*** 90,101 ****
+  
+  .field public static final VTCALL:Ljava/lang/String; = "vtcall"
+  
+  
+  # direct methods
+  .method static constructor <clinit>()V
+      .locals 3
+  
+      .prologue
+      const-string v0, "content://call_log/calls"
+  
+      invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+--- 90,107 ----
+  
+  .field public static final VTCALL:Ljava/lang/String; = "vtcall"
+  
++ .field static sExtraCallLogValues:Landroid/content/ContentValues;
++ 
+  
+  # direct methods
+  .method static constructor <clinit>()V
+      .locals 3
+  
+      .prologue
++     const/4 v0, 0x0
++ 
++     sput-object v0, Landroid/provider/CallLog$Calls;->sExtraCallLogValues:Landroid/content/ContentValues;
++ 
+      const-string v0, "content://call_log/calls"
+  
+      invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+***************
+*** 259,264 ****
+  
+      invoke-direct {v14, v2}, Landroid/content/ContentValues;-><init>(I)V
+  
+      .local v14, values:Landroid/content/ContentValues;
+      const-string v2, "number"
+  
+--- 265,273 ----
+  
+      invoke-direct {v14, v2}, Landroid/content/ContentValues;-><init>(I)V
+  
++     invoke-static {v14}, Landroid/provider/CallLog$Injector;->getExtraCallLogValues(Landroid/content/ContentValues;)Landroid/content/ContentValues;
++ 
++     move-result-object v14
+      .local v14, values:Landroid/content/ContentValues;
+      const-string v2, "number"
+  
+***************
+*** 587,593 ****
+      move-result-object v12
+  
+      .local v12, result:Landroid/net/Uri;
+!     invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Calls;->removeExpiredEntries(Landroid/content/Context;)V
+  
+      return-object v12
+  
+--- 599,605 ----
+      move-result-object v12
+  
+      .local v12, result:Landroid/net/Uri;
+!     invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Injector;->removeExpiredEntries(Landroid/content/Context;)V
+  
+      return-object v12
+  

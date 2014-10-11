@@ -1,0 +1,21 @@
+*** NumberPicker.smali	2014-10-11 10:21:09.224209461 +1100
+--- NumberPicker.smali	2014-10-11 10:18:07.976205530 +1100
+***************
+*** 4067,4073 ****
+      check-cast v4, Ljava/lang/String;
+  
+      .local v4, scrollSelectorValue:Ljava/lang/String;
+!     const/4 v11, 0x1
+  
+      if-ne v3, v11, :cond_4
+  
+--- 4280,4288 ----
+      check-cast v4, Ljava/lang/String;
+  
+      .local v4, scrollSelectorValue:Ljava/lang/String;
+!     move-object/from16 v0, p0
+! 
+!     iget v11, v0, Landroid/widget/NumberPicker;->SELECTOR_MIDDLE_ITEM_INDEX:I
+  
+      if-ne v3, v11, :cond_4
+  

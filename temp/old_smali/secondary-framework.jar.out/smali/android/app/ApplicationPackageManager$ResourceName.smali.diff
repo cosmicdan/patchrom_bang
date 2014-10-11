@@ -1,0 +1,19 @@
+*** ./smali/android/app/ApplicationPackageManager$ResourceName.smali	2014-10-11 10:21:03.616209340 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/app/ApplicationPackageManager$ResourceName.smali	2014-10-11 10:18:02.772205417 +1100
+***************
+*** 9,15 ****
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x1a
+      name = "ResourceName"
+  .end annotation
+  
+--- 9,15 ----
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x18
+      name = "ResourceName"
+  .end annotation
+  

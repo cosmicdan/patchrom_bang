@@ -1,0 +1,24 @@
+*** StrictMode.smali	2014-10-11 10:20:47.736208995 +1100
+--- StrictMode.smali	2014-10-11 10:17:45.352205039 +1100
+***************
+*** 751,756 ****
+      move-result v2
+  
+      .local v2, suppress:Z
+      if-nez v0, :cond_2
+  
+      sget-boolean v6, Landroid/os/StrictMode;->IS_USER_BUILD:Z
+--- 755,767 ----
+      move-result v2
+  
+      .local v2, suppress:Z
++     sget-boolean v6, Landroid/os/StrictMode;->IS_USER_BUILD:Z
++ 
++     if-eqz v6, :cond_miui_0
++ 
++     const/4 v0, 0x0
++ 
++     :cond_miui_0
+      if-nez v0, :cond_2
+  
+      sget-boolean v6, Landroid/os/StrictMode;->IS_USER_BUILD:Z

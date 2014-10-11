@@ -1,0 +1,55 @@
+*** SMSDispatcher.smali	2014-10-11 10:20:01.792207999 +1100
+--- SMSDispatcher.smali	2014-10-11 10:17:02.340204106 +1100
+***************
+*** 691,697 ****
+  
+      aput-object v7, v6, v5
+  
+!     iget v7, p0, Lcom/android/internal/telephony/SMSDispatcher;->mSimId:I
+  
+      invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+  
+--- 704,710 ----
+  
+      aput-object v7, v6, v5
+  
+!     iget v7, p0, Lcom/android/internal/telephony/SMSDispatcher;->mSlotId:I
+  
+      invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+  
+***************
+*** 1848,1853 ****
+      .parameter "sentIntent"
+  
+      .prologue
+      invoke-static {p3}, Lcom/android/internal/telephony/SMSDispatcher;->getAppNameByIntent(Landroid/app/PendingIntent;)Ljava/lang/String;
+  
+      move-result-object v4
+--- 1861,1870 ----
+      .parameter "sentIntent"
+  
+      .prologue
++     const/4 v1, 0x0
++     
++     return v1
++     
+      invoke-static {p3}, Lcom/android/internal/telephony/SMSDispatcher;->getAppNameByIntent(Landroid/app/PendingIntent;)Ljava/lang/String;
+  
+      move-result-object v4
+***************
+*** 2064,2070 ****
+  
+      const-string v0, "simId"
+  
+!     iget v1, p0, Lcom/android/internal/telephony/SMSDispatcher;->mSimId:I
+  
+      invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+  
+--- 2081,2087 ----
+  
+      const-string v0, "simId"
+  
+!     iget v1, p0, Lcom/android/internal/telephony/SMSDispatcher;->mSlotId:I
+  
+      invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+  

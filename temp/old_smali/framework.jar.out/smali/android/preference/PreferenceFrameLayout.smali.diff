@@ -1,0 +1,20 @@
+*** ./smali/android/preference/PreferenceFrameLayout.smali	2014-10-11 10:20:42.564208883 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/preference/PreferenceFrameLayout.smali	2014-10-11 10:17:39.548204914 +1100
+***************
+*** 6,12 ****
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Landroid/preference/PreferenceFrameLayout$LayoutParams;
+      }
+  .end annotation
+  
+--- 6,13 ----
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Landroid/preference/PreferenceFrameLayout$LayoutParams;,
+!         Landroid/preference/PreferenceFrameLayout$Injector;
+      }
+  .end annotation
+  

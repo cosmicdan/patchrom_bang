@@ -1,0 +1,20 @@
+*** ./smali/com/android/server/connectivity/Tethering.smali	2014-10-11 10:21:25.220209808 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/services.jar.out/./smali/com/android/server/connectivity/Tethering.smali	2014-10-11 10:18:24.152205881 +1100
+***************
+*** 8,14 ****
+      value = {
+          Lcom/android/server/connectivity/Tethering$TetherMasterSM;,
+          Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;,
+!         Lcom/android/server/connectivity/Tethering$StateReceiver;
+      }
+  .end annotation
+  
+--- 8,15 ----
+      value = {
+          Lcom/android/server/connectivity/Tethering$TetherMasterSM;,
+          Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;,
+!         Lcom/android/server/connectivity/Tethering$StateReceiver;,
+!         Lcom/android/server/connectivity/Tethering$Injector;
+      }
+  .end annotation
+  

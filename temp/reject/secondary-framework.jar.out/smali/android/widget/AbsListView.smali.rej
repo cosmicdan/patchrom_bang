@@ -1,0 +1,32 @@
+*** AbsListView.smali	2014-10-11 10:21:09.536209468 +1100
+--- AbsListView.smali	2014-10-11 10:18:08.312205537 +1100
+***************
+*** 9650,9655 ****
+      .parameter "ev"
+  
+      .prologue
+      invoke-virtual/range {p0 .. p0}, Landroid/widget/AbsListView;->isEnabled()Z
+  
+      move-result v29
+--- 9900,9920 ----
+      .parameter "ev"
+  
+      .prologue
++     invoke-static/range {p0 .. p1}, Landroid/widget/AbsListView$Injector;->isOutOfTouchRange(Landroid/widget/AbsListView;Landroid/view/MotionEvent;)Z
++ 
++     move-result v29
++ 
++     if-eqz v29, :cond_miui_0
++ 
++     const/16 v29, 0x3
++ 
++     move-object/from16 v0, p1
++ 
++     move/from16 v1, v29
++ 
++     invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->setAction(I)V
++ 
++     :cond_miui_0
+      invoke-virtual/range {p0 .. p0}, Landroid/widget/AbsListView;->isEnabled()Z
+  
+      move-result v29

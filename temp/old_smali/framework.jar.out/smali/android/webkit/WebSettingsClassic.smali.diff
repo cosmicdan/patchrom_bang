@@ -1,0 +1,235 @@
+*** ./smali/android/webkit/WebSettingsClassic.smali	2014-10-11 10:20:37.088208764 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/webkit/WebSettingsClassic.smali	2014-10-11 10:17:33.896204791 +1100
+***************
+*** 58,63 ****
+--- 58,65 ----
+  
+  .field private mAutoFillProfile:Landroid/webkit/WebSettingsClassic$AutoFillProfile;
+  
++ .field private mBlockFloatPopupWindows:Z
++ 
+  .field private mBlockNetworkImage:Z
+  
+  .field private mBlockNetworkLoads:Z
+***************
+*** 106,111 ****
+--- 108,115 ----
+  
+  .field private mHardwareAccelSkia:Z
+  
++ .field private mIsWebapp:Z
++ 
+  .field private mJavaScriptCanOpenWindowsAutomatically:Z
+  
+  .field private mJavaScriptEnabled:Z
+***************
+*** 120,125 ****
+--- 124,131 ----
+  
+  .field private mLoadsImagesAutomatically:Z
+  
++ .field private mLoadsImagesOnDemand:Z
++ 
+  .field private mMaximumDecodedImageSize:J
+  
+  .field private mMediaPlaybackRequiresUserGesture:Z
+***************
+*** 223,228 ****
+--- 229,236 ----
+  
+      invoke-direct {p0}, Landroid/webkit/WebSettings;-><init>()V
+  
++     iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mIsWebapp:Z
++ 
+      iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mSyncPending:Z
+  
+      sget-object v1, Landroid/webkit/WebSettings$LayoutAlgorithm;->NARROW_COLUMNS:Landroid/webkit/WebSettings$LayoutAlgorithm;
+***************
+*** 269,274 ****
+--- 277,284 ----
+  
+      iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesAutomatically:Z
+  
++     iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesOnDemand:Z
++ 
+      iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mBlockNetworkImage:Z
+  
+      iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mJavaScriptEnabled:Z
+***************
+*** 381,386 ****
+--- 391,398 ----
+  
+      iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mPasswordEchoEnabled:Z
+  
++     iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mBlockFloatPopupWindows:Z
++ 
+      sget-object v1, Landroid/webkit/WebSettings$NotificationState;->ON:Landroid/webkit/WebSettings$NotificationState;
+  
+      iput-object v1, p0, Landroid/webkit/WebSettingsClassic;->mNotificationState:Landroid/webkit/WebSettings$NotificationState;
+***************
+*** 1296,1301 ****
+--- 1308,1336 ----
+      throw v0
+  .end method
+  
++ .method public declared-synchronized getBlockFloatPopupWindows()Z
++     .locals 1
++ 
++     .prologue
++     monitor-enter p0
++ 
++     :try_start_0
++     iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mBlockFloatPopupWindows:Z
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     monitor-exit p0
++ 
++     return v0
++ 
++     :catchall_0
++     move-exception v0
++ 
++     monitor-exit p0
++ 
++     throw v0
++ .end method
++ 
+  .method public declared-synchronized getBlockNetworkImage()Z
+      .locals 1
+  
+***************
+*** 2653,2658 ****
+--- 2688,2724 ----
+      throw v0
+  .end method
+  
++ .method public declared-synchronized setBlockFloatPopupWindows(Z)V
++     .locals 1
++     .parameter "flag"
++ 
++     .prologue
++     monitor-enter p0
++ 
++     :try_start_0
++     iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mBlockFloatPopupWindows:Z
++ 
++     if-eq v0, p1, :cond_0
++ 
++     iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mBlockFloatPopupWindows:Z
++ 
++     invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     :cond_0
++     monitor-exit p0
++ 
++     return-void
++ 
++     :catchall_0
++     move-exception v0
++ 
++     monitor-exit p0
++ 
++     throw v0
++ .end method
++ 
+  .method public declared-synchronized setBlockNetworkLoads(Z)V
+      .locals 1
+      .parameter "flag"
+***************
+*** 3478,3483 ****
+--- 3544,3580 ----
+      throw v0
+  .end method
+  
++ .method public declared-synchronized setLoadsImagesOnDemand(Z)V
++     .locals 1
++     .parameter "flag"
++ 
++     .prologue
++     monitor-enter p0
++ 
++     :try_start_0
++     iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesOnDemand:Z
++ 
++     if-eq v0, p1, :cond_0
++ 
++     iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesOnDemand:Z
++ 
++     invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     :cond_0
++     monitor-exit p0
++ 
++     return-void
++ 
++     :catchall_0
++     move-exception v0
++ 
++     monitor-exit p0
++ 
++     throw v0
++ .end method
++ 
+  .method public setMaximumDecodedImageSize(J)V
+      .locals 2
+      .parameter "size"
+***************
+*** 4620,4622 ****
+--- 4717,4768 ----
+  
+      throw v1
+  .end method
++ 
++ .method public declared-synchronized getIsWebapp()Z
++     .locals 1
++ 
++     .prologue
++     monitor-enter p0
++ 
++     :try_start_0
++     iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mIsWebapp:Z
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     monitor-exit p0
++ 
++     return v0
++ 
++     :catchall_0
++     move-exception v0
++ 
++     monitor-exit p0
++ 
++     throw v0
++ .end method
++ 
++ .method public declared-synchronized setIsWebapp(Z)V
++     .locals 1
++     .parameter "isWebapp"
++ 
++     .prologue
++     monitor-enter p0
++ 
++     :try_start_0
++     iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mIsWebapp:Z
++ 
++     invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     monitor-exit p0
++ 
++     return-void
++ 
++     :catchall_0
++     move-exception v0
++ 
++     monitor-exit p0
++ 
++     throw v0
++ .end method

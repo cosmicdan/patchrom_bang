@@ -1,0 +1,105 @@
+*** MediaFile.smali	2014-10-11 10:20:43.716208908 +1100
+--- MediaFile.smali	2014-10-11 10:17:40.952204944 +1100
+***************
+*** 1369,1402 ****
+  .end method
+  
+  .method public static isAudioFileType(I)Z
+!     .locals 1
+      .parameter "fileType"
+  
+      .prologue
+      const/16 v0, 0x65
+  
+      if-lt p0, v0, :cond_0
+  
+      const/16 v0, 0xc7
+  
+!     if-le p0, v0, :cond_1
+  
+      :cond_0
+      const/16 v0, 0xc9
+  
+!     if-lt p0, v0, :cond_2
+  
+      const/16 v0, 0xcb
+  
+!     if-gt p0, v0, :cond_2
+  
+      :cond_1
+      const/4 v0, 0x1
+  
+      :goto_0
+      return v0
+  
+!     :cond_2
+      const/4 v0, 0x0
+  
+      goto :goto_0
+--- 1378,1418 ----
+  .end method
+  
+  .method public static isAudioFileType(I)Z
+!     .locals 2
+      .parameter "fileType"
+  
+      .prologue
++     const/16 v1, 0x3e9
++ 
+      const/16 v0, 0x65
+  
+      if-lt p0, v0, :cond_0
+  
+      const/16 v0, 0xc7
+  
+!     if-le p0, v0, :cond_2
+  
+      :cond_0
+      const/16 v0, 0xc9
+  
+!     if-lt p0, v0, :cond_1
+  
+      const/16 v0, 0xcb
+  
+!     if-le p0, v0, :cond_2
+  
+      :cond_1
++     if-lt p0, v1, :cond_3
++ 
++     if-gt p0, v1, :cond_3
++ 
++     :cond_2
+      const/4 v0, 0x1
+  
+      :goto_0
+      return v0
+  
+!     :cond_3
+      const/4 v0, 0x0
+  
+      goto :goto_0
+***************
+*** 1529,1540 ****
+  .end method
+  
+  .method public static isVideoFileType(I)Z
+!     .locals 2
+      .parameter "fileType"
+  
+      .prologue
+-     const/16 v1, 0x320
+- 
+      const/16 v0, 0x12d
+  
+      if-lt p0, v0, :cond_0
+--- 1545,1554 ----
+  .end method
+  
+  .method public static isVideoFileType(I)Z
+!     .locals 1
+      .parameter "fileType"
+  
+      .prologue
+      const/16 v0, 0x12d
+  
+      if-lt p0, v0, :cond_0

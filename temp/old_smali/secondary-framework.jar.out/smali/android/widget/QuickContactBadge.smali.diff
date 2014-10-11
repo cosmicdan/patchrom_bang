@@ -1,0 +1,86 @@
+*** ./smali/android/widget/QuickContactBadge.smali	2014-10-11 10:21:11.724209516 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/widget/QuickContactBadge.smali	2014-10-11 10:18:10.092205576 +1100
+***************
+*** 9,15 ****
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Landroid/widget/QuickContactBadge$QueryHandler;
+      }
+  .end annotation
+  
+--- 9,16 ----
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Landroid/widget/QuickContactBadge$QueryHandler;,
+!         Landroid/widget/QuickContactBadge$Injector;
+      }
+  .end annotation
+  
+***************
+*** 461,471 ****
+  .end method
+  
+  .method protected onDraw(Landroid/graphics/Canvas;)V
+!     .locals 5
+      .parameter "canvas"
+  
+      .prologue
+!     const/4 v4, 0x0
+  
+      invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
+  
+--- 462,472 ----
+  .end method
+  
+  .method protected onDraw(Landroid/graphics/Canvas;)V
+!     .locals 6
+      .parameter "canvas"
+  
+      .prologue
+!     const/4 v5, 0x0
+  
+      invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
+  
+***************
+*** 506,516 ****
+  
+      move-result v2
+  
+      invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getHeight()I
+  
+      move-result v3
+  
+!     invoke-virtual {v1, v4, v4, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+  
+      iget v1, p0, Landroid/widget/QuickContactBadge;->mPaddingTop:I
+  
+--- 507,533 ----
+  
+      move-result v2
+  
++     iget v3, p0, Landroid/widget/QuickContactBadge;->mPaddingLeft:I
++ 
++     sub-int/2addr v2, v3
++ 
++     iget v3, p0, Landroid/widget/QuickContactBadge;->mPaddingRight:I
++ 
++     sub-int/2addr v2, v3
++ 
+      invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getHeight()I
+  
+      move-result v3
+  
+!     iget v4, p0, Landroid/widget/QuickContactBadge;->mPaddingTop:I
+! 
+!     sub-int/2addr v3, v4
+! 
+!     iget v4, p0, Landroid/widget/QuickContactBadge;->mPaddingBottom:I
+! 
+!     sub-int/2addr v3, v4
+! 
+!     invoke-virtual {v1, v5, v5, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+  
+      iget v1, p0, Landroid/widget/QuickContactBadge;->mPaddingTop:I
+  

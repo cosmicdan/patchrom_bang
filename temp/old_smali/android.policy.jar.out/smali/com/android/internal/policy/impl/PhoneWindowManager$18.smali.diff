@@ -1,0 +1,19 @@
+*** ./smali/com/android/internal/policy/impl/PhoneWindowManager$18.smali	2014-10-11 10:21:01.324209290 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/PhoneWindowManager$18.smali	2014-10-11 10:18:00.240205362 +1100
+***************
+*** 3,9 ****
+  .source "PhoneWindowManager.java"
+  
+  # interfaces
+! .implements Lcom/android/internal/policy/impl/keyguard/KeyguardViewManager$ShowListener;
+  
+  
+  # annotations
+--- 3,9 ----
+  .source "PhoneWindowManager.java"
+  
+  # interfaces
+! .implements Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;
+  
+  
+  # annotations

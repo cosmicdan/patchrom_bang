@@ -1,0 +1,45 @@
+*** ./smali/android/widget/RemoteViews.smali	2014-10-11 10:21:08.392209443 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/widget/RemoteViews.smali	2014-10-11 10:18:07.116205511 +1100
+***************
+*** 71,76 ****
+--- 71,78 ----
+  
+  .field private mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
+  
++ .field mDefaultTheme:I
++ 
+  .field private mHasUsedCustomerView:Z
+  
+  .field private mIsRoot:Z
+***************
+*** 1135,1140 ****
+--- 1137,1146 ----
+      move-result-object v0
+  
+      .local v0, c:Landroid/content/Context;
++     iget v4, p0, Landroid/widget/RemoteViews;->mDefaultTheme:I
++ 
++     invoke-virtual {v0, v4}, Landroid/content/Context;->setTheme(I)V
++ 
+      const-string v4, "layout_inflater"
+  
+      invoke-virtual {v0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+***************
+*** 1686,1691 ****
+--- 1692,1707 ----
+  
+      return-void
+  .end method
++ 
++ .method public setDefaultTheme(I)V
++     .locals 0
++     .parameter "id"
++ 
++     .prologue
++     iput p1, p0, Landroid/widget/RemoteViews;->mDefaultTheme:I
++ 
++     return-void
++ .end method
+  
+  .method public setDisplayedChild(II)V
+      .locals 1

@@ -1,0 +1,41 @@
+*** ./smali/com/android/internal/telephony/gsm/SpnOverride.smali	2014-10-11 10:20:03.992208047 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/gsm/SpnOverride.smali	2014-10-11 10:17:04.240204148 +1100
+***************
+*** 81,87 ****
+      return-void
+  .end method
+  
+! .method private constructor <init>()V
+      .locals 1
+  
+      .prologue
+--- 81,87 ----
+      return-void
+  .end method
+  
+! .method constructor <init>()V
+      .locals 1
+  
+      .prologue
+***************
+*** 1592,1594 ****
+--- 1592,1610 ----
+  
+      goto :goto_0
+  .end method
++ 
++ .method public getSpnFromConfig(Ljava/lang/String;)Ljava/lang/String;
++     .locals 1
++     .parameter "carrier"
++ 
++     .prologue
++     sget-object v0, Lcom/android/internal/telephony/gsm/SpnOverride;->CarrierSpnMap:Ljava/util/HashMap;
++ 
++     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
++ 
++     move-result-object v0
++ 
++     check-cast v0, Ljava/lang/String;
++ 
++     return-object v0
++ .end method

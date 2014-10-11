@@ -1,0 +1,13 @@
+*** ./smali/com/android/server/power/ShutdownThread$CloseDialogReceiver.smali	2014-10-11 10:21:18.236209657 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/services.jar.out/./smali/com/android/server/power/ShutdownThread$CloseDialogReceiver.smali	2014-10-11 10:18:16.828205722 +1100
+***************
+*** 56,61 ****
+--- 56,63 ----
+  
+      invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+  
++     invoke-static {p1}, Lcom/android/server/power/ShutdownThread$Injector;->onDismiss(Landroid/content/DialogInterface;)V
++ 
+      return-void
+  .end method
+  

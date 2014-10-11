@@ -1,0 +1,67 @@
+*** ./smali/android/webkit/WebSettings.smali	2014-10-11 10:20:36.428208750 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/webkit/WebSettings.smali	2014-10-11 10:17:33.160204775 +1100
+***************
+*** 104,109 ****
+--- 104,132 ----
+  .method public abstract getAllowUniversalAccessFromFileURLs()Z
+  .end method
+  
++ .method public declared-synchronized getBlockFloatPopupWindows()Z
++     .locals 1
++ 
++     .prologue
++     monitor-enter p0
++ 
++     :try_start_0
++     new-instance v0, Landroid/webkit/MustOverrideException;
++ 
++     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
++ 
++     throw v0
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     :catchall_0
++     move-exception v0
++ 
++     monitor-exit p0
++ 
++     throw v0
++ .end method
++ 
+  .method public declared-synchronized getBlockNetworkImage()Z
+      .locals 1
+  
+***************
+*** 944,949 ****
+--- 967,996 ----
+  
+      .prologue
+      monitor-enter p0
++ 
++     :try_start_0
++     new-instance v0, Landroid/webkit/MustOverrideException;
++ 
++     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
++ 
++     throw v0
++     :try_end_0
++     .catchall {:try_start_0 .. :try_end_0} :catchall_0
++ 
++     :catchall_0
++     move-exception v0
++ 
++     monitor-exit p0
++ 
++     throw v0
++ .end method
++ 
++ .method public declared-synchronized setBlockFloatPopupWindows(Z)V
++     .locals 1
++     .parameter "flag"
++ 
++     .prologue
++     monitor-enter p0
+  
+      :try_start_0
+      new-instance v0, Landroid/webkit/MustOverrideException;

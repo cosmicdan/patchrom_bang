@@ -1,0 +1,66 @@
+*** Telephony$SIMInfo.smali	2014-10-11 10:20:40.096208830 +1100
+--- Telephony$SIMInfo.smali	2014-10-11 10:17:36.828204855 +1100
+***************
+*** 243,248 ****
+  
+      :cond_0
+      :goto_0
+      sget-object v3, Landroid/provider/Telephony;->SIMBackgroundRes:[I
+  
+      array-length v2, v3
+--- 241,257 ----
+  
+      :cond_0
+      :goto_0
++     iget v4, v0, Landroid/provider/Telephony$SIMInfo;->mSlot:I
++ 
++     const/4 v3, 0x0
++     
++     if-nez v4, :cond_miui_0
++ 
++     const/4 v3, 0x2
++ 
++     :cond_miui_0
++     iput v3, v0, Landroid/provider/Telephony$SIMInfo;->mColor:I
++ 
+      sget-object v3, Landroid/provider/Telephony;->SIMBackgroundRes:[I
+  
+      array-length v2, v3
+***************
+*** 1704,1709 ****
+      .parameter "name"
+  
+      .prologue
+      const-wide/16 v2, 0x0
+  
+      cmp-long v2, p1, v2
+--- 1713,1722 ----
+      .parameter "name"
+  
+      .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ 
+      const-wide/16 v2, 0x0
+  
+      cmp-long v2, p1, v2
+***************
+*** 1924,1929 ****
+      .parameter "nameSource"
+  
+      .prologue
+      const-wide/16 v2, 0x0
+  
+      cmp-long v2, p1, v2
+--- 1937,1946 ----
+      .parameter "nameSource"
+  
+      .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ 
+      const-wide/16 v2, 0x0
+  
+      cmp-long v2, p1, v2

@@ -1,0 +1,38 @@
+*** ./smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali	2014-10-11 10:20:05.020208069 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali	2014-10-11 10:17:04.996204164 +1100
+***************
+*** 337,342 ****
+--- 337,351 ----
+      return-void
+  .end method
+  
++ .method public getAdnCapacity()I
++     .locals 1
++ 
++     .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ .end method
++ 
+  .method public declared-synchronized getAdnRecordsInEf(I)Ljava/util/List;
+      .locals 5
+      .parameter "efid"
+***************
+*** 520,525 ****
+--- 529,543 ----
+      goto :goto_0
+  .end method
+  
++ .method public getFreeAdn()I
++     .locals 1
++ 
++     .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ .end method
++ 
+  .method public getPhonebookMemStorageExt()[Lcom/android/internal/telephony/gsm/UsimPBMemInfo;
+      .locals 1
+  

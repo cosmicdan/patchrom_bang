@@ -1,0 +1,19 @@
+*** ./smali/android/provider/Telephony$SimInfo.smali	2014-10-11 10:20:41.224208854 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/provider/Telephony$SimInfo.smali	2014-10-11 10:17:38.048204881 +1100
+***************
+*** 50,56 ****
+  
+  .field public static final DEFAULT_SOURCE:I = 0x0
+  
+! .field public static final DISLPAY_NUMBER_DEFAULT:I = 0x1
+  
+  .field public static final DISPALY_NUMBER_NONE:I = 0x0
+  
+--- 50,56 ----
+  
+  .field public static final DEFAULT_SOURCE:I = 0x0
+  
+! .field public static final DISLPAY_NUMBER_DEFAULT:I = 0x0
+  
+  .field public static final DISPALY_NUMBER_NONE:I = 0x0
+  

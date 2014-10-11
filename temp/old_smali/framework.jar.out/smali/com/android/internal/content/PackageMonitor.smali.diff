@@ -1,0 +1,24 @@
+*** ./smali/com/android/internal/content/PackageMonitor.smali	2014-10-11 10:20:08.292208140 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/content/PackageMonitor.smali	2014-10-11 10:17:06.832204204 +1100
+***************
+*** 1291,1296 ****
+--- 1291,1309 ----
+      return-void
+  .end method
+  
++ .method public register(Landroid/content/Context;Z)V
++     .locals 1
++     .parameter "context"
++     .parameter "externalStorage"
++ 
++     .prologue
++     const/4 v0, 0x0
++ 
++     invoke-virtual {p0, p1, v0, p2}, Lcom/android/internal/content/PackageMonitor;->register(Landroid/content/Context;Landroid/os/Looper;Z)V
++ 
++     return-void
++ .end method
++ 
+  .method public unregister()V
+      .locals 2
+  

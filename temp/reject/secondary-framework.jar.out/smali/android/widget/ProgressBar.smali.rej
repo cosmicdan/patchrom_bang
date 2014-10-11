@@ -1,0 +1,23 @@
+*** ProgressBar.smali	2014-10-11 10:21:11.692209515 +1100
+--- ProgressBar.smali	2014-10-11 10:18:10.060205575 +1100
+***************
+*** 909,914 ****
+      .parameter "drawable"
+  
+      .prologue
+      const/16 v7, 0x2710
+  
+      instance-of v5, p1, Landroid/graphics/drawable/AnimationDrawable;
+--- 909,920 ----
+      .parameter "drawable"
+  
+      .prologue
++     invoke-virtual {p0, p1}, Landroid/widget/ProgressBar;->tileifyIndeterminateMiui(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
++ 
++     move-result-object v0
++ 
++     return-object v0
++     
+      const/16 v7, 0x2710
+  
+      instance-of v5, p1, Landroid/graphics/drawable/AnimationDrawable;

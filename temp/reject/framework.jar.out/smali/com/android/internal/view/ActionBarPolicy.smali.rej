@@ -1,0 +1,21 @@
+*** ActionBarPolicy.smali	2014-10-11 10:20:10.840208195 +1100
+--- ActionBarPolicy.smali	2014-10-11 10:17:08.792204246 +1100
+***************
+*** 227,232 ****
+      .locals 1
+  
+      .prologue
+      iget-object v0, p0, Lcom/android/internal/view/ActionBarPolicy;->mContext:Landroid/content/Context;
+  
+      invoke-static {v0}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+--- 227,236 ----
+      .locals 1
+  
+      .prologue
++     const/4 v0, 0x1
++ 
++     return v0
++ 
+      iget-object v0, p0, Lcom/android/internal/view/ActionBarPolicy;->mContext:Landroid/content/Context;
+  
+      invoke-static {v0}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;

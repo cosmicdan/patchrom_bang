@@ -1,0 +1,25 @@
+*** ./smali/android/app/LauncherActivity$ActivityAdapter.smali	2014-10-11 10:21:03.260209332 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/app/LauncherActivity$ActivityAdapter.smali	2014-10-11 10:18:02.396205409 +1100
+***************
+*** 268,278 ****
+  
+      iget-object v1, p0, Landroid/app/LauncherActivity$ActivityAdapter;->mInflater:Landroid/view/LayoutInflater;
+  
+!     const v2, 0x1090021
+  
+!     const/4 v3, 0x0
+! 
+!     invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+  
+      move-result-object v0
+  
+--- 268,276 ----
+  
+      iget-object v1, p0, Landroid/app/LauncherActivity$ActivityAdapter;->mInflater:Landroid/view/LayoutInflater;
+  
+!     iget-object v2, p0, Landroid/app/LauncherActivity$ActivityAdapter;->this$0:Landroid/app/LauncherActivity;
+  
+!     invoke-static {v1, p3, v2}, Landroid/app/LauncherActivity$Injector;->getView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/content/Context;)Landroid/view/View;
+  
+      move-result-object v0
+  

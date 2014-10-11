@@ -1,0 +1,38 @@
+*** ./smali/android/app/DownloadManager.smali	2014-10-11 10:21:04.520209359 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/app/DownloadManager.smali	2014-10-11 10:18:03.140205425 +1100
+***************
+*** 8,14 ****
+      value = {
+          Landroid/app/DownloadManager$CursorTranslator;,
+          Landroid/app/DownloadManager$Query;,
+!         Landroid/app/DownloadManager$Request;
+      }
+  .end annotation
+  
+--- 8,15 ----
+      value = {
+          Landroid/app/DownloadManager$CursorTranslator;,
+          Landroid/app/DownloadManager$Query;,
+!         Landroid/app/DownloadManager$Request;,
+!         Landroid/app/DownloadManager$Injector;
+      }
+  .end annotation
+  
+***************
+*** 658,663 ****
+--- 659,673 ----
+      goto :goto_0
+  .end method
+  
++ .method getBaseUri()Landroid/net/Uri;
++     .locals 1
++ 
++     .prologue
++     iget-object v0, p0, Landroid/app/DownloadManager;->mBaseUri:Landroid/net/Uri;
++ 
++     return-object v0
++ .end method
++ 
+  .method getDownloadUri(J)Landroid/net/Uri;
+      .locals 1
+      .parameter "id"

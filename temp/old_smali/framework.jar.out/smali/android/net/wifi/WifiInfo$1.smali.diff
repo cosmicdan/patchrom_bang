@@ -1,0 +1,17 @@
+*** ./smali/android/net/wifi/WifiInfo$1.smali	2014-10-11 10:20:27.852208564 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/net/wifi/WifiInfo$1.smali	2014-10-11 10:17:23.108204557 +1100
+***************
+*** 155,160 ****
+--- 155,166 ----
+      #setter for: Landroid/net/wifi/WifiInfo;->mMeteredHint:Z
+      invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access$302(Landroid/net/wifi/WifiInfo;Z)Z
+  
++     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
++ 
++     move-result-object v1
++ 
++     invoke-static {v0, v1}, Landroid/net/wifi/WifiInfo;->access_setVendorInfo(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
++ 
+      sget-object v1, Landroid/net/wifi/SupplicantState;->CREATOR:Landroid/os/Parcelable$Creator;
+  
+      invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

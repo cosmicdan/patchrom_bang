@@ -1,0 +1,21 @@
+*** FullBackup.smali	2014-10-11 10:21:03.212209331 +1100
+--- FullBackup.smali	2014-10-11 10:18:02.348205408 +1100
+***************
+*** 191,197 ****
+      move-result v5
+  
+      .local v5, got:I
+!     if-gtz v5, :cond_7
+  
+      const-string v13, "FullBackup"
+  
+--- 191,199 ----
+      move-result v5
+  
+      .local v5, got:I
+!     const/4 v13, -0x1
+! 
+!     if-ne v5, v13, :cond_7
+  
+      const-string v13, "FullBackup"
+  

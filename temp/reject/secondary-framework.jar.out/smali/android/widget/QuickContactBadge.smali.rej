@@ -1,0 +1,27 @@
+*** QuickContactBadge.smali	2014-10-11 10:21:11.724209516 +1100
+--- QuickContactBadge.smali	2014-10-11 10:18:10.092205576 +1100
+***************
+*** 462,472 ****
+  .end method
+  
+  .method protected onDraw(Landroid/graphics/Canvas;)V
+!     .locals 5
+      .parameter "canvas"
+  
+      .prologue
+!     const/4 v4, 0x0
+  
+      invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
+  
+--- 463,473 ----
+  .end method
+  
+  .method protected onDraw(Landroid/graphics/Canvas;)V
+!     .locals 6
+      .parameter "canvas"
+  
+      .prologue
+!     const/4 v5, 0x0
+  
+      invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
+  

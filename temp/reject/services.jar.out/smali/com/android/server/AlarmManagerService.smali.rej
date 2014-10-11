@@ -1,0 +1,19 @@
+*** AlarmManagerService.smali	2014-10-11 10:21:24.440209792 +1100
+--- AlarmManagerService.smali	2014-10-11 10:18:23.392205865 +1100
+***************
+*** 4219,4225 ****
+  .end method
+  
+  .method public setRepeating(IJJLandroid/app/PendingIntent;)V
+!     .locals 4
+      .parameter "type"
+      .parameter "triggerAtTime"
+      .parameter "interval"
+--- 4219,4225 ----
+  .end method
+  
+  .method public setRepeating(IJJLandroid/app/PendingIntent;)V
+!     .locals 7
+      .parameter "type"
+      .parameter "triggerAtTime"
+      .parameter "interval"

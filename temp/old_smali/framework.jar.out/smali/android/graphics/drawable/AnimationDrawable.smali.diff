@@ -1,0 +1,37 @@
+*** ./smali/android/graphics/drawable/AnimationDrawable.smali	2014-10-11 10:20:15.064208287 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimationDrawable.smali	2014-10-11 10:17:12.280204322 +1100
+***************
+*** 17,23 ****
+  
+  
+  # instance fields
+! .field private final mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
+  
+  .field private mCurFrame:I
+  
+--- 17,23 ----
+  
+  
+  # instance fields
+! .field private mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
+  
+  .field private mCurFrame:I
+  
+***************
+*** 211,216 ****
+--- 211,225 ----
+      return-void
+  .end method
+  
++ .method getAnimationState()Landroid/graphics/drawable/AnimationDrawable$AnimationState;
++     .locals 1
++ 
++     .prologue
++     iget-object v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
++ 
++     return-object v0
++ .end method
++ 
+  .method public getDuration(I)I
+      .locals 1
+      .parameter "i"

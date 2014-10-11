@@ -1,0 +1,41 @@
+*** ./smali/android/net/http/AndroidHttpClient.smali	2014-10-11 10:20:30.308208617 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/net/http/AndroidHttpClient.smali	2014-10-11 10:17:25.800204615 +1100
+***************
+*** 10,16 ****
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+          Landroid/net/http/AndroidHttpClient$CurlLogger;,
+!         Landroid/net/http/AndroidHttpClient$LoggingConfiguration;
+      }
+  .end annotation
+  
+--- 10,17 ----
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+          Landroid/net/http/AndroidHttpClient$CurlLogger;,
+!         Landroid/net/http/AndroidHttpClient$LoggingConfiguration;,
+!         Landroid/net/http/AndroidHttpClient$Injector;
+      }
+  .end annotation
+  
+***************
+*** 500,506 ****
+  
+      .local v3, sessionCache:Landroid/net/SSLSessionCache;
+      :goto_0
+!     invoke-static {v1, p0}, Lorg/apache/http/params/HttpProtocolParams;->setUserAgent(Lorg/apache/http/params/HttpParams;Ljava/lang/String;)V
+  
+      new-instance v2, Lorg/apache/http/conn/scheme/SchemeRegistry;
+  
+--- 501,511 ----
+  
+      .local v3, sessionCache:Landroid/net/SSLSessionCache;
+      :goto_0
+!     invoke-static {p0}, Landroid/net/http/AndroidHttpClient$Injector;->getUserAgent(Ljava/lang/String;)Ljava/lang/String;
+! 
+!     move-result-object v4
+! 
+!     invoke-static {v1, v4}, Lorg/apache/http/params/HttpProtocolParams;->setUserAgent(Lorg/apache/http/params/HttpParams;Ljava/lang/String;)V
+  
+      new-instance v2, Lorg/apache/http/conn/scheme/SchemeRegistry;
+  

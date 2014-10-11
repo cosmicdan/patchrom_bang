@@ -1,0 +1,19 @@
+*** CompoundButton.smali	2014-10-11 10:21:10.848209497 +1100
+--- CompoundButton.smali	2014-10-11 10:18:09.180205556 +1100
+***************
+*** 286,292 ****
+      and-int/lit8 v7, v8, 0x70
+  
+      .local v7, verticalGravity:I
+!     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+  
+      move-result v2
+  
+--- 287,293 ----
+      and-int/lit8 v7, v8, 0x70
+  
+      .local v7, verticalGravity:I
+!     invoke-static {v1, p0}, Landroid/widget/CompoundButton$Injector;->getDrawableHeight(Landroid/graphics/drawable/Drawable;Landroid/widget/CompoundButton;)I
+  
+      move-result v2
+  

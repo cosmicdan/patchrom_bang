@@ -1,0 +1,25 @@
+*** AbsListView$FlingRunnable.smali	2014-10-11 10:21:11.320209507 +1100
+--- AbsListView$FlingRunnable.smali	2014-10-11 10:18:09.676205567 +1100
+***************
+*** 1208,1214 ****
+      move-result v19
+  
+      .local v19, currY:I
+!     sub-int v7, v19, v9
+  
+      .local v7, deltaY:I
+      move-object/from16 v0, p0
+--- 1284,1296 ----
+      move-result v19
+  
+      .local v19, currY:I
+!     sub-int v2, v19, v9
+! 
+!     move-object/from16 v0, p0
+! 
+!     invoke-direct {v0, v2, v9}, Landroid/widget/AbsListView$FlingRunnable;->scaleOverScrollDeltaY(II)I
+! 
+!     move-result v7
+  
+      .local v7, deltaY:I
+      move-object/from16 v0, p0

@@ -1,0 +1,13 @@
+*** ./smali/android/view/WindowManagerPolicy.smali	2014-10-11 10:21:16.576209621 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/view/WindowManagerPolicy.smali	2014-10-11 10:18:15.088205684 +1100
+***************
+*** 22,27 ****
+--- 22,29 ----
+  
+  .field public static final ACTION_PASS_TO_USER:I = 0x1
+  
++ .field public static final ACTION_POKE_USER_ACTIVITY:I = 0x2
++ 
+  .field public static final ACTION_WAKE_UP:I = 0x2
+  
+  .field public static final EXTRA_HDMI_PLUGGED_STATE:Ljava/lang/String; = "state"

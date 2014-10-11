@@ -1,0 +1,32 @@
+*** ./smali/android/text/format/DateFormat.smali	2014-10-11 10:20:49.400209031 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/text/format/DateFormat.smali	2014-10-11 10:17:47.140205078 +1100
+***************
+*** 3,8 ****
+--- 3,16 ----
+  .source "DateFormat.java"
+  
+  
++ # annotations
++ .annotation system Ldalvik/annotation/MemberClasses;
++     value = {
++         Landroid/text/format/DateFormat$Injector;
++     }
++ .end annotation
++ 
++ 
+  # static fields
+  .field public static final AM_PM:C = 'a'
+  
+***************
+*** 1825,1830 ****
+--- 1833,1842 ----
+      move-result-object v4
+  
+      .local v4, value:Ljava/lang/String;
++     invoke-static {p0, v4}, Landroid/text/format/DateFormat$Injector;->check24HourFormatForChina(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
++ 
++     move-result-object v4
++ 
+      if-nez v4, :cond_3
+  
+      invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;

@@ -1,0 +1,19 @@
+*** ./smali/com/android/server/pm/Settings.smali	2014-10-11 10:21:20.256209701 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/services.jar.out/./smali/com/android/server/pm/Settings.smali	2014-10-11 10:18:19.160205773 +1100
+***************
+*** 478,484 ****
+  
+      const/16 v1, 0x22
+  
+!     const/high16 v2, 0x4000
+  
+      invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+  
+--- 478,484 ----
+  
+      const/16 v1, 0x22
+  
+!     const/high16 v2, 0x200
+  
+      invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+  

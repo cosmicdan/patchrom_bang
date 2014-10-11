@@ -1,0 +1,21 @@
+*** RemoteViews.smali	2014-10-11 10:21:08.392209443 +1100
+--- RemoteViews.smali	2014-10-11 10:18:07.116205511 +1100
+***************
+*** 1137,1142 ****
+      move-result-object v0
+  
+      .local v0, c:Landroid/content/Context;
+      const-string v4, "layout_inflater"
+  
+      invoke-virtual {v0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+--- 1139,1148 ----
+      move-result-object v0
+  
+      .local v0, c:Landroid/content/Context;
++     iget v4, p0, Landroid/widget/RemoteViews;->mDefaultTheme:I
++ 
++     invoke-virtual {v0, v4}, Landroid/content/Context;->setTheme(I)V
++ 
+      const-string v4, "layout_inflater"
+  
+      invoke-virtual {v0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;

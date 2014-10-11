@@ -1,0 +1,28 @@
+*** RingtoneManager.smali	2014-10-11 10:20:45.764208953 +1100
+--- RingtoneManager.smali	2014-10-11 10:17:43.232204993 +1100
+***************
+*** 566,572 ****
+      move-result-object v1
+  
+      .local v1, resolver:Landroid/content/ContentResolver;
+!     packed-switch p1, :pswitch_data_0
+  
+      :pswitch_0
+      const-string v4, "RingtoneManager"
+--- 566,581 ----
+      move-result-object v1
+  
+      .local v1, resolver:Landroid/content/ContentResolver;
+!     const/high16 v5, 0x1
+!     
+!     move v4, p1
+!     
+!     if-ne v4, v5, :cond_miui_0
+!     
+!     const/16 v4, 0x8
+!     
+!     :cond_miui_0
+!     packed-switch v4, :pswitch_data_0
+  
+      :pswitch_0
+      const-string v4, "RingtoneManager"

@@ -1,0 +1,61 @@
+*** AudioService.smali	2014-10-11 10:20:43.596208906 +1100
+--- AudioService.smali	2014-10-11 10:17:40.836204941 +1100
+***************
+*** 4140,4146 ****
+  .end method
+  
+  .method private dispatchMediaKeyEvent(Landroid/view/KeyEvent;Z)V
+!     .locals 16
+      .parameter "keyEvent"
+      .parameter "needWakeLock"
+  
+--- 4141,4147 ----
+  .end method
+  
+  .method private dispatchMediaKeyEvent(Landroid/view/KeyEvent;Z)V
+!     .locals 17
+      .parameter "keyEvent"
+      .parameter "needWakeLock"
+  
+***************
+*** 11157,11165 ****
+      .parameter "flags"
+  
+      .prologue
+!     iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
+  
+!     invoke-virtual {v0, p2}, Landroid/view/VolumePanel;->postMasterMuteChanged(I)V
+  
+      invoke-direct {p0, p1}, Landroid/media/AudioService;->broadcastMasterMuteStatus(Z)V
+  
+--- 11162,11170 ----
+      .parameter "flags"
+  
+      .prologue
+!     iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
+  
+!     invoke-virtual {v0, p2}, Lmiui/view/VolumePanel;->postMasterMuteChanged(I)V
+  
+      invoke-direct {p0, p1}, Landroid/media/AudioService;->broadcastMasterMuteStatus(Z)V
+  
+***************
+*** 11173,11181 ****
+      .parameter "newVolume"
+  
+      .prologue
+!     iget-object v1, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
+  
+!     invoke-virtual {v1, p1}, Landroid/view/VolumePanel;->postMasterVolumeChanged(I)V
+  
+      new-instance v0, Landroid/content/Intent;
+  
+--- 11178,11186 ----
+      .parameter "newVolume"
+  
+      .prologue
+!     iget-object v1, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
+  
+!     invoke-virtual {v1, p1}, Lmiui/view/VolumePanel;->postMasterVolumeChanged(I)V
+  
+      new-instance v0, Landroid/content/Intent;
+  

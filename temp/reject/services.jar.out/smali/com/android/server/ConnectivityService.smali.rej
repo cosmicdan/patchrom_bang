@@ -1,0 +1,40 @@
+*** ConnectivityService.smali	2014-10-11 10:21:24.992209803 +1100
+--- ConnectivityService.smali	2014-10-11 10:18:23.924205876 +1100
+***************
+*** 9989,9994 ****
+      move-result v10
+  
+      .local v10, usedNetworkType:I
+      move-object/from16 v0, p0
+  
+      iget-object v13, v0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
+--- 9995,10004 ----
+      move-result v10
+  
+      .local v10, usedNetworkType:I
++     move-object/from16 v0, p1
++ 
++     invoke-static {v0, v10}, Lcom/android/server/ConnectivityService$Injector;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;I)V
++ 
+      move-object/from16 v0, p0
+  
+      iget-object v13, v0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
+***************
+*** 10480,10485 ****
+      move-result v11
+  
+      .local v11, usedNetworkType:I
+      move-object/from16 v0, p0
+  
+      iget-object v14, v0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
+--- 10490,10499 ----
+      move-result v11
+  
+      .local v11, usedNetworkType:I
++     move-object/from16 v0, p1
++ 
++     invoke-static {v0, v11}, Lcom/android/server/ConnectivityService$Injector;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;I)V
++ 
+      move-object/from16 v0, p0
+  
+      iget-object v14, v0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;

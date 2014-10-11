@@ -1,0 +1,108 @@
+*** PhoneWindow.smali	2014-10-11 10:21:01.396209292 +1100
+--- PhoneWindow.smali	2014-10-11 10:18:00.384205365 +1100
+***************
+*** 1195,1200 ****
+      invoke-virtual {v6}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
+  
+      :cond_7
+      const/4 v2, 0x0
+  
+      .local v2, splitActionBar:Z
+--- 1196,1205 ----
+      invoke-virtual {v6}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
+  
+      :cond_7
++     iget-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
++ 
++     invoke-static {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleStartingWindow(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/widget/ActionBarView;)V
++ 
+      const/4 v2, 0x0
+  
+      .local v2, splitActionBar:Z
+***************
+*** 1888,1893 ****
+  
+      goto/16 :goto_5
+  
+      .local v2, lp:Landroid/view/WindowManager$LayoutParams;
+      :cond_10
+      move-object/from16 v0, p1
+--- 1899,1933 ----
+  
+      goto/16 :goto_5
+  
++     .end local v2           #lp:Landroid/view/ViewGroup$LayoutParams;
++     :cond_miui_0
++     move-object/from16 v0, p1
++ 
++     iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
++ 
++     invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
++ 
++     move-result-object v2
++ 
++ 
++     .restart local v2       #lp:Landroid/view/ViewGroup$LayoutParams;
++     if-eqz v2, :cond_miui_1
++ 
++     iget v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
++ 
++     :cond_miui_1
++     move-object/from16 v0, p1
++ 
++     iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
++ 
++     invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getChildCount()I
++ 
++     move-result v4
++ 
++     if-nez v4, :cond_b
++ 
++     goto/16 :goto_0
++ 
+      .local v2, lp:Landroid/view/WindowManager$LayoutParams;
+      :cond_10
+      move-object/from16 v0, p1
+***************
+*** 4289,4302 ****
+  
+      if-eqz v19, :cond_26
+  
+!     const v10, 0x10900ba
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+  
+      .end local v10           #layoutResource:I
+      :cond_26
+!     const v10, 0x10900b9
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+--- 4335,4360 ----
+  
+      if-eqz v19, :cond_26
+  
+!     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+! 
+!     move-result-object v19
+! 
+!     invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarOverlayResourceId(Landroid/content/Context;)I
+! 
+!     move-result v10
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+  
+      .end local v10           #layoutResource:I
+      :cond_26
+!     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+! 
+!     move-result-object v19
+! 
+!     invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarResourceId(Landroid/content/Context;)I
+! 
+!     move-result v10
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8

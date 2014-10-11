@@ -1,0 +1,25 @@
+*** TextView.smali	2014-10-11 10:21:08.196209439 +1100
+--- TextView.smali	2014-10-11 10:18:06.904205507 +1100
+***************
+*** 24835,24840 ****
+      .parameter "tf"
+  
+      .prologue
+      iget-object v0, p0, Landroid/widget/TextView;->mTextPaint:Landroid/text/TextPaint;
+  
+      invoke-virtual {v0}, Landroid/text/TextPaint;->getTypeface()Landroid/graphics/Typeface;
+--- 24888,24901 ----
+      .parameter "tf"
+  
+      .prologue
++     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
++ 
++     move-result-object v0
++ 
++     invoke-static {v0, p1}, Lmiui/util/UiUtils;->replaceTypeface(Landroid/content/Context;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
++ 
++     move-result-object p1
++ 
+      iget-object v0, p0, Landroid/widget/TextView;->mTextPaint:Landroid/text/TextPaint;
+  
+      invoke-virtual {v0}, Landroid/text/TextPaint;->getTypeface()Landroid/graphics/Typeface;

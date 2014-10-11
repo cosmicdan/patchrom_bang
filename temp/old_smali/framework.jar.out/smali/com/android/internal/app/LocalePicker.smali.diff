@@ -1,0 +1,13 @@
+*** ./smali/com/android/internal/app/LocalePicker.smali	2014-10-11 10:19:57.048207896 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/LocalePicker.smali	2014-10-11 10:16:58.112204015 +1100
+***************
+*** 359,364 ****
+--- 359,366 ----
+      :cond_4
+      invoke-static {v6}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
+  
++     invoke-static {v6}, Lmiui/util/ExtraLocalePicker;->adjustLocaleOrder([Lcom/android/internal/app/LocalePicker$LocaleInfo;)V
++ 
+      const-string v2, "layout_inflater"
+  
+      move-object/from16 v0, p0

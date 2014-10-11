@@ -1,0 +1,81 @@
+*** ActivityManagerService.smali	2014-10-11 10:21:23.384209769 +1100
+--- ActivityManagerService.smali	2014-10-11 10:18:22.360205842 +1100
+***************
+*** 6026,6031 ****
+      move-result-object v9
+  
+      .restart local v9       #queue:Lcom/android/server/am/BroadcastQueue;
+      new-instance v8, Lcom/android/server/am/BroadcastRecord;
+  
+      const/16 v32, 0x0
+--- 6029,6050 ----
+      move-result-object v9
+  
+      .restart local v9       #queue:Lcom/android/server/am/BroadcastQueue;
++     move-object/from16 v0, p0
++ 
++     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
++ 
++     invoke-virtual/range {p0 .. p0}, Lcom/android/server/am/ActivityManagerService;->getRunningAppProcesses()Ljava/util/List;
++ 
++     move-result-object v6
++ 
++     invoke-virtual/range {v46 .. v46}, Landroid/content/Intent;->getAction()Ljava/lang/String;
++ 
++     move-result-object v10
++ 
++     move-object/from16 v0, v25
++ 
++     invoke-static {v4, v0, v6, v10}, Lcom/android/server/am/ExtraActivityManagerService;->adjustMediaButtonReceivers(Landroid/content/Context;Ljava/util/List;Ljava/util/List;Ljava/lang/String;)V
++ 
+      new-instance v8, Lcom/android/server/am/BroadcastRecord;
+  
+      const/16 v32, 0x0
+***************
+*** 9330,9340 ****
+      const/16 v25, 0x0
+  
+      .local v25, interesting:Z
+!     move-object/from16 v0, p1
+  
+!     move-object/from16 v1, p5
+  
+!     if-ne v0, v1, :cond_1b
+  
+      const/4 v13, 0x0
+  
+--- 9349,9365 ----
+      const/16 v25, 0x0
+  
+      .local v25, interesting:Z
+!     move-object/from16 v0, p0
+  
+!     move-object/from16 v1, p1
+! 
+!     move-object/from16 v2, p5
+! 
+!     invoke-static {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService$Injector;->isForegroundApp(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ProcessRecord;)Z
+  
+!     move-result v1
+! 
+!     if-eqz v1, :cond_1b
+  
+      const/4 v13, 0x0
+  
+***************
+*** 22153,22159 ****
+      move-result-object v1
+  
+      .local v1, context:Landroid/content/Context;
+!     const v4, 0x103006b
+  
+      invoke-virtual {v1, v4}, Landroid/content/Context;->setTheme(I)V
+  
+--- 22232,22238 ----
+      move-result-object v1
+  
+      .local v1, context:Landroid/content/Context;
+!     const v4, 0x60d003a
+  
+      invoke-virtual {v1, v4}, Landroid/content/Context;->setTheme(I)V
+  

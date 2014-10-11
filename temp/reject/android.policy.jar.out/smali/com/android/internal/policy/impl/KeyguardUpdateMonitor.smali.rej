@@ -1,0 +1,41 @@
+*** KeyguardUpdateMonitor.smali	2014-10-11 10:21:01.028209284 +1100
+--- KeyguardUpdateMonitor.smali	2014-10-11 10:17:59.936205356 +1100
+***************
+*** 133,138 ****
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
+      sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->UNKNOWN:Lcom/android/internal/telephony/IccCardConstants$State;
+  
+      iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
+--- 136,143 ----
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
++     iput-boolean v3, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
++ 
+      sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->UNKNOWN:Lcom/android/internal/telephony/IccCardConstants$State;
+  
+      iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
+***************
+*** 878,883 ****
+      .parameter "simArgs"
+  
+      .prologue
+      iget-object v2, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCardConstants$State;
+  
+      .local v2, state:Lcom/android/internal/telephony/IccCardConstants$State;
+--- 883,895 ----
+      .parameter "simArgs"
+  
+      .prologue
++     iget-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
++ 
++     if-eqz v4, :cond_miui_0
++ 
++     return-void
++ 
++     :cond_miui_0
+      iget-object v2, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCardConstants$State;
+  
+      .local v2, state:Lcom/android/internal/telephony/IccCardConstants$State;

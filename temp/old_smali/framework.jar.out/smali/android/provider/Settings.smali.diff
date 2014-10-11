@@ -1,0 +1,20 @@
+*** ./smali/android/provider/Settings.smali	2014-10-11 10:20:41.628208863 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/provider/Settings.smali	2014-10-11 10:17:38.492204891 +1100
+***************
+*** 12,18 ****
+          Landroid/provider/Settings$System;,
+          Landroid/provider/Settings$NameValueCache;,
+          Landroid/provider/Settings$NameValueTable;,
+!         Landroid/provider/Settings$SettingNotFoundException;
+      }
+  .end annotation
+  
+--- 12,19 ----
+          Landroid/provider/Settings$System;,
+          Landroid/provider/Settings$NameValueCache;,
+          Landroid/provider/Settings$NameValueTable;,
+!         Landroid/provider/Settings$SettingNotFoundException;,
+!         Landroid/provider/Settings$Injector;
+      }
+  .end annotation
+  

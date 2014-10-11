@@ -1,0 +1,21 @@
+*** SmsMessage.smali	2014-10-11 10:20:04.512208058 +1100
+--- SmsMessage.smali	2014-10-11 10:17:04.568204155 +1100
+***************
+*** 3992,3997 ****
+  
+      move-result-object v3
+  
+      iput-object v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->destinationAddress:Lcom/android/internal/telephony/SmsAddress;
+  
+      iget-object v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->destinationAddress:Lcom/android/internal/telephony/SmsAddress;
+--- 3992,4001 ----
+  
+      move-result-object v3
+  
++     iput-object v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->recipientAddress:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
++ 
++     iget-object v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->recipientAddress:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
++ 
+      iput-object v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->destinationAddress:Lcom/android/internal/telephony/SmsAddress;
+  
+      iget-object v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->destinationAddress:Lcom/android/internal/telephony/SmsAddress;

@@ -1,0 +1,37 @@
+*** ./smali/android/view/LayoutInflater.smali	2014-10-11 10:21:16.756209625 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/view/LayoutInflater.smali	2014-10-11 10:18:15.276205688 +1100
+***************
+*** 10,16 ****
+          Landroid/view/LayoutInflater$FactoryMerger;,
+          Landroid/view/LayoutInflater$Factory2;,
+          Landroid/view/LayoutInflater$Factory;,
+!         Landroid/view/LayoutInflater$Filter;
+      }
+  .end annotation
+  
+--- 10,17 ----
+          Landroid/view/LayoutInflater$FactoryMerger;,
+          Landroid/view/LayoutInflater$Factory2;,
+          Landroid/view/LayoutInflater$Factory;,
+!         Landroid/view/LayoutInflater$Filter;,
+!         Landroid/view/LayoutInflater$Injector;
+      }
+  .end annotation
+  
+***************
+*** 1500,1505 ****
+--- 1501,1514 ----
+      invoke-virtual {p0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+  
+      move-result-object v1
++ 
++     invoke-static {v1, p1}, Landroid/view/LayoutInflater$Injector;->getResourceId(Landroid/content/Context;I)I
++ 
++     move-result p1
++ 
++     invoke-virtual {p0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
++ 
++     move-result-object v1
+  
+      invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+  

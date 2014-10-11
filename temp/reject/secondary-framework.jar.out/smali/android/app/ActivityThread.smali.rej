@@ -1,0 +1,25 @@
+*** ActivityThread.smali	2014-10-11 10:21:04.436209358 +1100
+--- ActivityThread.smali	2014-10-11 10:18:03.052205423 +1100
+***************
+*** 12305,12314 ****
+  
+      :cond_5
+      :goto_3
+!     new-instance v6, Landroid/content/res/Resources;
+  
+      .end local v6           #r:Landroid/content/res/Resources;
+!     invoke-direct {v6, v0, v2, v1, p4}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
+  
+      .restart local v6       #r:Landroid/content/res/Resources;
+      iget-object v9, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;
+--- 12307,12316 ----
+  
+      :cond_5
+      :goto_3
+!     new-instance v6, Landroid/content/res/MiuiResources;
+  
+      .end local v6           #r:Landroid/content/res/Resources;
+!     invoke-direct {v6, v0, v2, v1, p4}, Landroid/content/res/MiuiResources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
+  
+      .restart local v6       #r:Landroid/content/res/Resources;
+      iget-object v9, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;

@@ -1,0 +1,41 @@
+*** ./smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali	2014-10-11 10:19:58.412207926 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali	2014-10-11 10:16:59.392204043 +1100
+***************
+*** 10,16 ****
+          Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;,
+          Lcom/android/internal/telephony/CallerInfoAsyncQuery$QueryPoolException;,
+          Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;,
+!         Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;
+      }
+  .end annotation
+  
+--- 10,17 ----
+          Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;,
+          Lcom/android/internal/telephony/CallerInfoAsyncQuery$QueryPoolException;,
+          Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;,
+!         Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;,
+!         Lcom/android/internal/telephony/CallerInfoAsyncQuery$Injector;
+      }
+  .end annotation
+  
+***************
+*** 351,357 ****
+      :cond_0
+      sget-object v0, Landroid/provider/ContactsContract$PhoneLookup;->CONTENT_FILTER_URI:Landroid/net/Uri;
+  
+!     invoke-static {p2}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+  
+      move-result-object v1
+  
+--- 352,362 ----
+      :cond_0
+      sget-object v0, Landroid/provider/ContactsContract$PhoneLookup;->CONTENT_FILTER_URI:Landroid/net/Uri;
+  
+!     invoke-static {p2}, Lcom/android/internal/telephony/CallerInfoAsyncQuery$Injector;->getPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+! 
+!     move-result-object v1
+! 
+!     invoke-static {v1}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+  
+      move-result-object v1
+  

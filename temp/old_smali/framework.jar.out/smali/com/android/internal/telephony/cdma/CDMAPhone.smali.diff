@@ -1,0 +1,15 @@
+*** ./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2014-10-11 10:19:58.700207932 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2014-10-11 10:16:59.668204049 +1100
+***************
+*** 3394,3399 ****
+--- 3394,3403 ----
+  
+      iput-object v4, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mMeid:Ljava/lang/String;
+  
++     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->sendDeviceIdReadyBroadcast()V
++ 
++     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->setDeviceIdSystemProperty()V
++ 
+      goto :goto_0
+  
+      .end local v0           #ar:Landroid/os/AsyncResult;

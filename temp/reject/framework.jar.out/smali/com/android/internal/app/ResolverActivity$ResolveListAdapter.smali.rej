@@ -1,0 +1,42 @@
+*** ResolverActivity$ResolveListAdapter.smali	2014-10-11 10:19:56.724207889 +1100
+--- ResolverActivity$ResolveListAdapter.smali	2014-10-11 10:16:57.816204008 +1100
+***************
+*** 1131,1136 ****
+      move-result-object v1
+  
+      .local v1, lp:Landroid/view/ViewGroup$LayoutParams;
+      iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->this$0:Lcom/android/internal/app/ResolverActivity;
+  
+      #getter for: Lcom/android/internal/app/ResolverActivity;->mIconSize:I
+--- 1141,1155 ----
+      move-result-object v1
+  
+      .local v1, lp:Landroid/view/ViewGroup$LayoutParams;
++     iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
++ 
++     if-eqz v3, :cond_miui_0
++ 
++     iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
++ 
++     if-nez v3, :cond_miui_1
++ 
++     :cond_miui_0
+      iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->this$0:Lcom/android/internal/app/ResolverActivity;
+  
+      #getter for: Lcom/android/internal/app/ResolverActivity;->mIconSize:I
+***************
+*** 1144,1149 ****
+  
+      .end local v0           #icon:Landroid/widget/ImageView;
+      .end local v1           #lp:Landroid/view/ViewGroup$LayoutParams;
+      :goto_0
+      iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->mList:Ljava/util/List;
+  
+--- 1163,1169 ----
+  
+      .end local v0           #icon:Landroid/widget/ImageView;
+      .end local v1           #lp:Landroid/view/ViewGroup$LayoutParams;
++     :cond_miui_1
+      :goto_0
+      iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->mList:Ljava/util/List;
+  

@@ -1,0 +1,78 @@
+*** ActionBarView.smali	2014-10-11 10:20:07.424208121 +1100
+--- ActionBarView.smali	2014-10-11 10:17:06.376204194 +1100
+***************
+*** 688,699 ****
+      return-object v0
+  .end method
+  
+! .method static synthetic access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/widget/LinearLayout;
+      .locals 1
+      .parameter "x0"
+  
+      .prologue
+!     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
+  
+      return-object v0
+  .end method
+--- 691,702 ----
+      return-object v0
+  .end method
+  
+! .method static synthetic access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/view/ViewGroup;
+      .locals 1
+      .parameter "x0"
+  
+      .prologue
+!     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+  
+      return-object v0
+  .end method
+***************
+*** 938,960 ****
+      move v4, v5
+  
+      :goto_4
+!     invoke-virtual {v8, v4}, Landroid/widget/LinearLayout;->setEnabled(Z)V
+  
+!     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
+  
+      if-eqz v0, :cond_d
+  
+      if-eqz v3, :cond_d
+  
+      :goto_5
+!     invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setClickable(Z)V
+  
+      .end local v0           #homeAsUp:Z
+      .end local v1           #inflater:Landroid/view/LayoutInflater;
+      .end local v2           #showHome:Z
+      .end local v3           #showTitleUp:Z
+      :cond_4
+!     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
+  
+      invoke-virtual {p0, v4}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
+  
+--- 954,976 ----
+      move v4, v5
+  
+      :goto_4
+!     invoke-virtual {v8, v4}, Landroid/view/ViewGroup;->setEnabled(Z)V
+  
+!     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+  
+      if-eqz v0, :cond_d
+  
+      if-eqz v3, :cond_d
+  
+      :goto_5
+!     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->setClickable(Z)V
+  
+      .end local v0           #homeAsUp:Z
+      .end local v1           #inflater:Landroid/view/LayoutInflater;
+      .end local v2           #showHome:Z
+      .end local v3           #showTitleUp:Z
+      :cond_4
+!     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+  
+      invoke-virtual {p0, v4}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
+  

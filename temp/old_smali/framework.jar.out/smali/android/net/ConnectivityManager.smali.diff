@@ -1,0 +1,13 @@
+*** ./smali/android/net/ConnectivityManager.smali	2014-10-11 10:20:29.680208604 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/net/ConnectivityManager.smali	2014-10-11 10:17:25.096204600 +1100
+***************
+*** 130,135 ****
+--- 130,137 ----
+  
+  .field public static final TYPE_USB:I = 0x28
+  
++ .field public static final TYPE_USB_SHARE_NET:I = 0xe
++ 
+  .field public static final TYPE_WIFI:I = 0x1
+  
+  .field public static final TYPE_WIFI_P2P:I = 0xd

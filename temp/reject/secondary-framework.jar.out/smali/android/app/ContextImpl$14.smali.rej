@@ -1,0 +1,19 @@
+*** ContextImpl$14.smali	2014-10-11 10:21:03.588209339 +1100
+--- ContextImpl$14.smali	2014-10-11 10:18:02.748205417 +1100
+***************
+*** 31,37 ****
+      .parameter "ctx"
+  
+      .prologue
+!     new-instance v0, Landroid/app/DownloadManager;
+  
+      invoke-virtual {p1}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
+  
+--- 31,37 ----
+      .parameter "ctx"
+  
+      .prologue
+!     new-instance v0, Landroid/app/MiuiDownloadManager;
+  
+      invoke-virtual {p1}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
+  

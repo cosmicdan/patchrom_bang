@@ -1,0 +1,38 @@
+*** ./smali/android/media/MediaScanner.smali	2014-10-11 10:20:43.636208906 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/media/MediaScanner.smali	2014-10-11 10:17:40.860204942 +1100
+***************
+*** 11,17 ****
+          Landroid/media/MediaScanner$MediaBulkDeleter;,
+          Landroid/media/MediaScanner$MyMediaScannerClient;,
+          Landroid/media/MediaScanner$PlaylistEntry;,
+!         Landroid/media/MediaScanner$FileEntry;
+      }
+  .end annotation
+  
+--- 11,18 ----
+          Landroid/media/MediaScanner$MediaBulkDeleter;,
+          Landroid/media/MediaScanner$MyMediaScannerClient;,
+          Landroid/media/MediaScanner$PlaylistEntry;,
+!         Landroid/media/MediaScanner$FileEntry;,
+!         Landroid/media/MediaScanner$Injector;
+      }
+  .end annotation
+  
+***************
+*** 4770,4775 ****
+--- 4771,4785 ----
+      return-void
+  .end method
+  
++ .method getContext()Landroid/content/Context;
++     .locals 1
++ 
++     .prologue
++     iget-object v0, p0, Landroid/media/MediaScanner;->mContext:Landroid/content/Context;
++ 
++     return-object v0
++ .end method
++ 
+  .method makeEntryFor(Ljava/lang/String;)Landroid/media/MediaScanner$FileEntry;
+      .locals 16
+      .parameter "path"

@@ -1,0 +1,20 @@
+*** ./smali/com/android/internal/telephony/IccProvider.smali	2014-10-11 10:20:00.888207979 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IccProvider.smali	2014-10-11 10:17:01.464204087 +1100
+***************
+*** 1394,1399 ****
+--- 1394,1408 ----
+      .end sparse-switch
+  .end method
+  
++ .method static getURL_MATCHER()Landroid/content/UriMatcher;
++     .locals 1
++ 
++     .prologue
++     sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
++ 
++     return-object v0
++ .end method
++ 
+  .method private loadFromEf(II)Landroid/database/MatrixCursor;
+      .locals 8
+      .parameter "efType"

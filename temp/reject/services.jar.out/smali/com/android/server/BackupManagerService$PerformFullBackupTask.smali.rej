@@ -1,0 +1,20 @@
+*** BackupManagerService$PerformFullBackupTask.smali	2014-10-11 10:21:18.056209653 +1100
+--- BackupManagerService$PerformFullBackupTask.smali	2014-10-11 10:18:16.648205718 +1100
+***************
+*** 1711,1716 ****
+      check-cast v19, Landroid/content/pm/PackageInfo;
+  
+      .restart local v19       #pkg:Landroid/content/pm/PackageInfo;
+      move-object/from16 v0, v19
+  
+      iget-object v0, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+--- 1711,1719 ----
+      check-cast v19, Landroid/content/pm/PackageInfo;
+  
+      .restart local v19       #pkg:Landroid/content/pm/PackageInfo;
++     
++     goto :goto_miui_0
++     
+      move-object/from16 v0, v19
+  
+      iget-object v0, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;

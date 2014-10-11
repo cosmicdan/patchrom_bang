@@ -1,0 +1,21 @@
+*** ./smali/com/android/server/pm/UserManagerService.smali	2014-10-11 10:21:19.784209691 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/services.jar.out/./smali/com/android/server/pm/UserManagerService.smali	2014-10-11 10:18:18.688205762 +1100
+***************
+*** 3035,3041 ****
+--- 3035,3050 ----
+  
+      monitor-enter v1
+  
++     if-nez p1, :cond_miui_0
++ 
++     const/4 v0, 0x1
++ 
+      :try_start_0
++     monitor-exit v1
++ 
++     return v0
++ 
++     :cond_miui_0
+      iget-object v0, p0, Lcom/android/server/pm/UserManagerService;->mUserIds:[I
+  
+      invoke-static {v0, p1}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z

@@ -1,0 +1,23 @@
+*** ./smali/android/preference/PreferenceActivity.smali	2014-10-11 10:20:42.128208874 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/preference/PreferenceActivity.smali	2014-10-11 10:17:39.036204902 +1100
+***************
+*** 11,16 ****
+--- 11,17 ----
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+          Landroid/preference/PreferenceActivity$Header;,
++         Landroid/preference/PreferenceActivity$Injector;,
+          Landroid/preference/PreferenceActivity$HeaderAdapter;
+      }
+  .end annotation
+***************
+*** 2045,2050 ****
+--- 2046,2053 ----
+  
+      if-lez v17, :cond_e
+  
++     invoke-static/range {p0 .. p0}, Landroid/preference/PreferenceActivity$Injector;->setListViewPadding(Landroid/preference/PreferenceActivity;)V
++ 
+      new-instance v17, Landroid/preference/PreferenceActivity$HeaderAdapter;
+  
+      move-object/from16 v0, p0

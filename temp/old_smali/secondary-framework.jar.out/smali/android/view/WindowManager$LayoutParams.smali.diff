@@ -1,0 +1,84 @@
+*** ./smali/android/view/WindowManager$LayoutParams.smali	2014-10-11 10:21:15.080209589 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/secondary-framework.jar.out/./smali/android/view/WindowManager$LayoutParams.smali	2014-10-11 10:18:13.564205651 +1100
+***************
+*** 309,314 ****
+--- 309,316 ----
+  
+  .field public dimAmount:F
+  
++ .field public extraFlags:I
++ 
+  .field public flags:I
+      .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
+          flagMapping = {
+***************
+*** 1075,1080 ****
+--- 1077,1088 ----
+  
+      move-result v0
+  
++     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->extraFlags:I
++     
++     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
++ 
++     move-result v0
++ 
+      iput v0, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+***************
+*** 1437,1442 ****
+--- 1445,1463 ----
+      or-int/lit8 v0, v0, 0x4
+  
+      :cond_9
++     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->extraFlags:I
++ 
++     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->extraFlags:I
++ 
++     if-eq v1, v2, :cond_miui_0
++         
++     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->extraFlags:I
++ 
++     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->extraFlags:I
++ 
++     or-int/lit8 v0, v0, 0x4
++     
++     :cond_miui_0
+      iget v1, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      iget v2, p1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+***************
+*** 2080,2085 ****
+--- 2101,2118 ----
+  
+      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  
++     const-string v1, " extfl=#"
++ 
++     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++ 
++     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->extraFlags:I
++ 
++     invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
++ 
++     move-result-object v1
++ 
++     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++ 
+      iget v1, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      if-eqz v1, :cond_4
+***************
+*** 2378,2383 ****
+--- 2411,2420 ----
+      iget v0, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
+  
+      invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
++     
++     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->extraFlags:I
++ 
++     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+  
+      iget v0, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  

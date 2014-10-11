@@ -1,0 +1,21 @@
+*** WindowState.smali	2014-10-11 10:21:21.964209738 +1100
+--- WindowState.smali	2014-10-11 10:18:20.920205811 +1100
+***************
+*** 830,835 ****
+  
+      iput-object v6, p0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+  
+      .end local v4           #e:Landroid/os/RemoteException;
+      :goto_7
+      return-void
+--- 836,845 ----
+  
+      iput-object v6, p0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+  
++     const/4 v6, 0x0
++ 
++     iput-boolean v6, p0, Lcom/android/server/wm/WindowState;->mFloatingWindowAllowed:Z
++ 
+      .end local v4           #e:Landroid/os/RemoteException;
+      :goto_7
+      return-void

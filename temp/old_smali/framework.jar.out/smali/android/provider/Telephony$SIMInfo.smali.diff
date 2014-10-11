@@ -1,0 +1,67 @@
+*** ./smali/android/provider/Telephony$SIMInfo.smali	2014-10-11 10:20:40.096208830 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/provider/Telephony$SIMInfo.smali	2014-10-11 10:17:36.828204855 +1100
+***************
+*** 67,75 ****
+  
+      iput-object v0, p0, Landroid/provider/Telephony$SIMInfo;->mNumber:Ljava/lang/String;
+  
+!     const/4 v0, 0x1
+! 
+!     iput v0, p0, Landroid/provider/Telephony$SIMInfo;->mDispalyNumberFormat:I
+  
+      iput v1, p0, Landroid/provider/Telephony$SIMInfo;->mDataRoaming:I
+  
+--- 67,73 ----
+  
+      iput-object v0, p0, Landroid/provider/Telephony$SIMInfo;->mNumber:Ljava/lang/String;
+  
+!     iput v1, p0, Landroid/provider/Telephony$SIMInfo;->mDispalyNumberFormat:I
+  
+      iput v1, p0, Landroid/provider/Telephony$SIMInfo;->mDataRoaming:I
+  
+***************
+*** 245,250 ****
+--- 243,259 ----
+  
+      :cond_0
+      :goto_0
++     iget v4, v0, Landroid/provider/Telephony$SIMInfo;->mSlot:I
++ 
++     const/4 v3, 0x0
++     
++     if-nez v4, :cond_miui_0
++ 
++     const/4 v3, 0x2
++ 
++     :cond_miui_0
++     iput v3, v0, Landroid/provider/Telephony$SIMInfo;->mColor:I
++ 
+      sget-object v3, Landroid/provider/Telephony;->SIMBackgroundRes:[I
+  
+      array-length v2, v3
+***************
+*** 1706,1711 ****
+--- 1715,1724 ----
+      .parameter "name"
+  
+      .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ 
+      const-wide/16 v2, 0x0
+  
+      cmp-long v2, p1, v2
+***************
+*** 1926,1931 ****
+--- 1939,1948 ----
+      .parameter "nameSource"
+  
+      .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ 
+      const-wide/16 v2, 0x0
+  
+      cmp-long v2, p1, v2

@@ -1,0 +1,19 @@
+*** ./smali/com/android/server/pm/GrantedPermissions.smali	2014-10-11 10:21:19.744209690 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/services.jar.out/./smali/com/android/server/pm/GrantedPermissions.smali	2014-10-11 10:18:18.644205762 +1100
+***************
+*** 91,97 ****
+      .parameter "pkgFlags"
+  
+      .prologue
+!     const v0, 0x60040001
+  
+      and-int/2addr v0, p1
+  
+--- 91,97 ----
+      .parameter "pkgFlags"
+  
+      .prologue
+!     const v0, -0x15fbffff
+  
+      and-int/2addr v0, p1
+  

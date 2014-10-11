@@ -1,0 +1,37 @@
+*** ./smali/android/net/Proxy.smali	2014-10-11 10:20:26.580208537 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/net/Proxy.smali	2014-10-11 10:17:22.020204533 +1100
+***************
+*** 6,12 ****
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;
+      }
+  .end annotation
+  
+--- 6,13 ----
+  # annotations
+  .annotation system Ldalvik/annotation/MemberClasses;
+      value = {
+!         Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;,
+!         Landroid/net/Proxy$Injector;
+      }
+  .end annotation
+  
+***************
+*** 309,315 ****
+      .local v1, sa:Ljava/net/InetSocketAddress;
+      new-instance v2, Lorg/apache/http/HttpHost;
+  
+!     invoke-virtual {v1}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
+  
+      move-result-object v3
+  
+--- 310,316 ----
+      .local v1, sa:Ljava/net/InetSocketAddress;
+      new-instance v2, Lorg/apache/http/HttpHost;
+  
+!     invoke-static {v1}, Landroid/net/Proxy$Injector;->getHostName(Ljava/net/InetSocketAddress;)Ljava/lang/String;
+  
+      move-result-object v3
+  

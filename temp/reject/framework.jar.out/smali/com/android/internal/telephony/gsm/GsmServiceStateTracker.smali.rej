@@ -1,0 +1,29 @@
+*** GsmServiceStateTracker.smali	2014-10-11 10:20:03.892208044 +1100
+--- GsmServiceStateTracker.smali	2014-10-11 10:17:04.148204146 +1100
+***************
+*** 14394,14402 ****
+      invoke-virtual {v11}, Lcom/android/internal/telephony/gsm/SIMRecords;->getServiceProviderName()Ljava/lang/String;
+  
+      move-result-object v12
+! 
+      .local v12, spn:Ljava/lang/String;
+      :goto_1
+      const/4 v8, 0x0
+  
+      .local v8, sEons:Ljava/lang/String;
+--- 14413,14427 ----
+      invoke-virtual {v11}, Lcom/android/internal/telephony/gsm/SIMRecords;->getServiceProviderName()Ljava/lang/String;
+  
+      move-result-object v12
+!     
+      .local v12, spn:Ljava/lang/String;
+      :goto_1
++     move-object/from16 v0, p0
++ 
++     invoke-static {v0, v12}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;->getSpn(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Ljava/lang/String;)Ljava/lang/String;
++ 
++     move-result-object v12
++     
+      const/4 v8, 0x0
+  
+      .local v8, sEons:Ljava/lang/String;

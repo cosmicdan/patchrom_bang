@@ -1,0 +1,21 @@
+*** ./smali/android/hardware/SensorManager.smali	2014-10-11 10:20:22.868208456 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/hardware/SensorManager.smali	2014-10-11 10:17:17.988204446 +1100
+***************
+*** 2294,2299 ****
+--- 2294,2309 ----
+  
+  
+  # virtual methods
++ .method public calibrateSensor(Landroid/hardware/Sensor;)Z
++     .locals 1
++     .parameter "sensor"
++ 
++     .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ .end method
++ 
+  .method public getDefaultSensor(I)Landroid/hardware/Sensor;
+      .locals 2
+      .parameter "type"

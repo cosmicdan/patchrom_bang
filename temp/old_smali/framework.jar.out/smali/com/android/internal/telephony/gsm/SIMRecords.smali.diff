@@ -1,0 +1,17 @@
+*** ./smali/com/android/internal/telephony/gsm/SIMRecords.smali	2014-10-11 10:20:04.184208051 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/gsm/SIMRecords.smali	2014-10-11 10:17:04.380204151 +1100
+***************
+*** 1360,1365 ****
+--- 1360,1371 ----
+  
+      iput-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->mVmConfig:Lcom/android/internal/telephony/gsm/VoiceMailConstants;
+  
++     invoke-static {}, Lcom/android/internal/telephony/gsm/MiuiSpnOverride;->getImpl()Lcom/android/internal/telephony/gsm/SpnOverride;
++ 
++     move-result-object v4
++ 
++     iput-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->mSpnOverride:Lcom/android/internal/telephony/gsm/SpnOverride;
++ 
+      iput-boolean v7, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->recordsRequested:Z
+  
+      iput v7, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->recordsToLoad:I

@@ -1,0 +1,24 @@
+*** ./smali/com/android/server/BackupManagerService$PerformFullBackupTask.smali	2014-10-11 10:21:18.056209653 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/services.jar.out/./smali/com/android/server/BackupManagerService$PerformFullBackupTask.smali	2014-10-11 10:18:16.648205718 +1100
+***************
+*** 1711,1716 ****
+--- 1711,1719 ----
+      check-cast v19, Landroid/content/pm/PackageInfo;
+  
+      .restart local v19       #pkg:Landroid/content/pm/PackageInfo;
++     
++     goto :goto_miui_0
++     
+      move-object/from16 v0, v19
+  
+      iget-object v0, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+***************
+*** 1729,1734 ****
+--- 1732,1738 ----
+  
+      if-eqz v21, :cond_3
+  
++     :goto_miui_0
+      move-object/from16 v0, v19
+  
+      iget-object v0, v0, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;

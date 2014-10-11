@@ -1,0 +1,33 @@
+*** ./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2014-10-11 10:20:04.096208049 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2014-10-11 10:17:04.312204149 +1100
+***************
+*** 5260,5265 ****
+--- 5260,5270 ----
+      :try_end_0
+      .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+  
++     :goto_miui_0
++     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GSMPhone;->sendDeviceIdReadyBroadcast()V
++ 
++     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GSMPhone;->setDeviceIdSystemProperty()V
++ 
+      goto/16 :goto_0
+  
+      :catch_0
+***************
+*** 5282,5288 ****
+  
+      invoke-direct {v0, v1}, Lcom/android/internal/telephony/gsm/GSMPhone;->LOGW(Ljava/lang/String;)V
+  
+!     goto/16 :goto_0
+  
+      .end local v4           #ar:Landroid/os/AsyncResult;
+      .end local v6           #e:Ljava/lang/NumberFormatException;
+--- 5287,5293 ----
+  
+      invoke-direct {v0, v1}, Lcom/android/internal/telephony/gsm/GSMPhone;->LOGW(Ljava/lang/String;)V
+  
+!     goto/16 :goto_miui_0
+  
+      .end local v4           #ar:Landroid/os/AsyncResult;
+      .end local v6           #e:Ljava/lang/NumberFormatException;

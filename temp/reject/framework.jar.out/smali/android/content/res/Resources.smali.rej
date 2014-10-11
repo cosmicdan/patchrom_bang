@@ -1,0 +1,106 @@
+*** Resources.smali	2014-10-11 10:20:33.576208688 +1100
+--- Resources.smali	2014-10-11 10:17:29.984204706 +1100
+***************
+*** 958,971 ****
+      .local v0, ret:Landroid/content/res/Resources;
+      if-nez v0, :cond_0
+  
+!     new-instance v0, Landroid/content/res/Resources;
+  
+      .end local v0           #ret:Landroid/content/res/Resources;
+!     invoke-direct {v0}, Landroid/content/res/Resources;-><init>()V
+  
+      .restart local v0       #ret:Landroid/content/res/Resources;
+      sput-object v0, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
+  
+      :cond_0
+      monitor-exit v2
+  
+--- 978,999 ----
+      .local v0, ret:Landroid/content/res/Resources;
+      if-nez v0, :cond_0
+  
+!     new-instance v0, Landroid/content/res/MiuiResources;
+  
+      .end local v0           #ret:Landroid/content/res/Resources;
+!     invoke-direct {v0}, Landroid/content/res/MiuiResources;-><init>()V
+  
+      .restart local v0       #ret:Landroid/content/res/Resources;
+      sput-object v0, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
+  
++     move-object v1, v0
++ 
++     check-cast v1, Landroid/content/res/MiuiResources;
++ 
++     const/4 v4, 0x0
++ 
++     invoke-virtual {v1, v4}, Landroid/content/res/MiuiResources;->init(Ljava/lang/String;)V
++ 
+      :cond_0
+      monitor-exit v2
+  
+***************
+*** 1861,1866 ****
+      .end annotation
+  
+      .prologue
+      sget-object v1, Landroid/content/res/Resources;->sPreloadedColorStateLists:Landroid/util/LongSparseArray;
+  
+      invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+--- 1889,1896 ----
+      .end annotation
+  
+      .prologue
++     goto :goto_miui_0
++     
+      sget-object v1, Landroid/content/res/Resources;->sPreloadedColorStateLists:Landroid/util/LongSparseArray;
+  
+      invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+***************
+*** 2267,2272 ****
+      .end annotation
+  
+      .prologue
+      sget-object v1, Landroid/content/res/Resources;->sPreloadedDrawables:Landroid/util/LongSparseArray;
+  
+      invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+--- 2298,2305 ----
+      .end annotation
+  
+      .prologue
++     goto :goto_miui_0
++     
+      sget-object v1, Landroid/content/res/Resources;->sPreloadedDrawables:Landroid/util/LongSparseArray;
+  
+      invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+***************
+*** 4738,4750 ****
+      move-result-object v7
+  
+      .local v7, is:Ljava/io/InputStream;
+      const/4 v13, 0x0
+  
+      move-object/from16 v0, p0
+  
+      move-object/from16 v1, p1
+  
+!     invoke-static {v0, v1, v7, v6, v13}, Landroid/graphics/drawable/Drawable;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
+  
+      move-result-object v3
+  
+--- 4816,4830 ----
+      move-result-object v7
+  
+      .local v7, is:Ljava/io/InputStream;
++     invoke-static/range {p2 .. p2}, Landroid/content/res/Resources$Injector;->setDrawableId(I)V
++ 
+      const/4 v13, 0x0
+  
+      move-object/from16 v0, p0
+  
+      move-object/from16 v1, p1
+  
+!     invoke-static {v0, v1, v7, v6, v13}, Landroid/content/res/Resources$Injector;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
+  
+      move-result-object v3
+  

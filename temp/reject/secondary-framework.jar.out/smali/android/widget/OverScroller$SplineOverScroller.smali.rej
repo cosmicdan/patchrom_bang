@@ -1,0 +1,19 @@
+*** OverScroller$SplineOverScroller.smali	2014-10-11 10:21:08.604209448 +1100
+--- OverScroller$SplineOverScroller.smali	2014-10-11 10:18:07.336205516 +1100
+***************
+*** 1095,1101 ****
+  .end method
+  
+  .method private startBounceAfterEdge(III)V
+!     .locals 1
+      .parameter "start"
+      .parameter "end"
+      .parameter "velocity"
+--- 1111,1117 ----
+  .end method
+  
+  .method private startBounceAfterEdge(III)V
+!     .locals 2
+      .parameter "start"
+      .parameter "end"
+      .parameter "velocity"

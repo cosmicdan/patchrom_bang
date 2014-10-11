@@ -1,0 +1,112 @@
+*** ./smali/com/android/internal/app/ResolverActivity.smali	2014-10-11 10:19:56.884207892 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/ResolverActivity.smali	2014-10-11 10:16:57.964204012 +1100
+***************
+*** 11,17 ****
+      value = {
+          Lcom/android/internal/app/ResolverActivity$ItemLongClickListener;,
+          Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;,
+!         Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+      }
+  .end annotation
+  
+--- 11,18 ----
+      value = {
+          Lcom/android/internal/app/ResolverActivity$ItemLongClickListener;,
+          Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;,
+!         Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;,
+!         Lcom/android/internal/app/ResolverActivity$Injector;
+      }
+  .end annotation
+  
+***************
+*** 401,407 ****
+  
+      .prologue
+      .local p5, rList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+!     const v1, 0x103030f
+  
+      invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setTheme(I)V
+  
+--- 402,408 ----
+  
+      .prologue
+      .local p5, rList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+!     const v1, 0x60d003e
+  
+      invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setTheme(I)V
+  
+***************
+*** 435,447 ****
+  
+      iput-boolean v0, p0, Lcom/android/internal/app/ResolverActivity;->mAlwaysUseOption:Z
+  
+!     invoke-virtual {p0}, Lcom/android/internal/app/ResolverActivity;->getResources()Landroid/content/res/Resources;
+! 
+!     move-result-object v1
+! 
+!     const v2, 0x10e0037
+! 
+!     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+  
+      move-result v1
+  
+--- 436,442 ----
+  
+      iput-boolean v0, p0, Lcom/android/internal/app/ResolverActivity;->mAlwaysUseOption:Z
+  
+!     invoke-static {p0}, Lcom/android/internal/app/ResolverActivity$Injector;->getMaxColumns(Lcom/android/internal/app/ResolverActivity;)I
+  
+      move-result v1
+  
+***************
+*** 535,540 ****
+--- 530,544 ----
+  
+      :cond_1
+      :goto_1
++     iget-object v0, v9, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
++ 
++     if-eqz v0, :cond_miui_00
++ 
++     move/from16 v0, p6
++ 
++     invoke-static {p0, v0}, Lcom/android/internal/app/ResolverActivity$Injector;->initialize(Lcom/android/internal/app/ResolverActivity;Z)V
++ 
++     :cond_miui_00
+      return-void
+  
+      .end local v8           #am:Landroid/app/ActivityManager;
+***************
+*** 619,624 ****
+--- 623,634 ----
+  
+      if-eqz p6, :cond_1
+  
++     invoke-static {p0}, Lmiui/util/UiUtils;->isV5Ui(Landroid/content/Context;)Z
++ 
++     move-result v1
++ 
++     if-nez v1, :cond_1
++ 
+      const v1, 0x102027a
+  
+      invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
+***************
+*** 1398,1403 ****
+--- 1408,1423 ----
+  
+      return-void
+  .end method
++ 
++ .method setAlwaysUseOption(Z)V
++     .locals 0
++     .parameter "alwaysUseOption"
++ 
++     .prologue
++     iput-boolean p1, p0, Lcom/android/internal/app/ResolverActivity;->mAlwaysUseOption:Z
++ 
++     return-void
++ .end method
+  
+  .method showAppDetails(Landroid/content/pm/ResolveInfo;)V
+      .locals 5

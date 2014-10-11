@@ -1,0 +1,63 @@
+*** GlowPadView.smali	2014-10-11 10:20:05.756208085 +1100
+--- GlowPadView.smali	2014-10-11 10:17:05.512204175 +1100
+***************
+*** 662,668 ****
+      .parameter "x3"
+  
+      .prologue
+!     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->switchToState(IFF)V
+  
+      return-void
+  .end method
+--- 656,662 ----
+      .parameter "x3"
+  
+      .prologue
+!     invoke-virtual {p0, p1, p2, p3}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->switchToState(IFF)V
+  
+      return-void
+  .end method
+***************
+*** 716,722 ****
+      .parameter "x2"
+  
+      .prologue
+!     invoke-direct {p0, p1, p2}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->hideTargets(ZZ)V
+  
+      return-void
+  .end method
+--- 710,716 ----
+      .parameter "x2"
+  
+      .prologue
+!     invoke-virtual {p0, p1, p2}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->hideTargets(ZZ)V
+  
+      return-void
+  .end method
+***************
+*** 4507,4518 ****
+      move-result v0
+  
+      .local v0, angle:F
+!     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->updateTargetPosition(IFFF)V
+  
+      return-void
+  .end method
+  
+! .method private updateTargetPosition(IFFF)V
+      .locals 6
+      .parameter "i"
+      .parameter "centerX"
+--- 4501,4512 ----
+      move-result v0
+  
+      .local v0, angle:F
+!     invoke-virtual {p0, p1, p2, p3, v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->updateTargetPosition(IFFF)V
+  
+      return-void
+  .end method
+  
+! .method updateTargetPosition(IFFF)V
+      .locals 6
+      .parameter "i"
+      .parameter "centerX"

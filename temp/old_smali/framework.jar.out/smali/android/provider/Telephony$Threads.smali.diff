@@ -1,0 +1,31 @@
+*** ./smali/android/provider/Telephony$Threads.smali	2014-10-11 10:20:40.112208830 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/provider/Telephony$Threads.smali	2014-10-11 10:17:36.840204855 +1100
+***************
+*** 212,218 ****
+      move-result v0
+  
+      if-eqz v0, :cond_2
+! 
+      new-instance v6, Landroid/content/ContentValues;
+  
+      const/4 v0, 0x1
+--- 212,220 ----
+      move-result v0
+  
+      if-eqz v0, :cond_2
+!     
+!     goto :goto_miui_0
+!     
+      new-instance v6, Landroid/content/ContentValues;
+  
+      const/4 v0, 0x1
+***************
+*** 284,289 ****
+--- 286,292 ----
+  
+      invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+  
++     :goto_miui_0
+      const/4 v0, 0x0
+  
+      invoke-interface {v9, v0}, Landroid/database/Cursor;->getLong(I)J

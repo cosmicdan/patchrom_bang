@@ -1,0 +1,15 @@
+*** ./smali/com/android/internal/policy/impl/keyguard/KeyguardViewMediator$5.smali	2014-10-11 10:20:59.048209241 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/keyguard/KeyguardViewMediator$5.smali	2014-10-11 10:17:57.900205312 +1100
+***************
+*** 45,54 ****
+      #calls: Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->sendRemoveIPOWinBroadcast()V
+      invoke-static {v0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->access$3100(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)V
+  
+-     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator$5;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;
+- 
+-     #calls: Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->startAlarm()V
+-     invoke-static {v0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->access$3200(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)V
+- 
+      return-void
+  .end method
+--- 45,49 ----

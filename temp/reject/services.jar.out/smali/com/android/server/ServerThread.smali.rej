@@ -1,0 +1,47 @@
+*** ServerThread.smali	2014-10-11 10:21:22.616209752 +1100
+--- ServerThread.smali	2014-10-11 10:18:21.588205825 +1100
+***************
+*** 2082,2087 ****
+      move-object/from16 v0, v153
+  
+      invoke-static {v7, v0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
+      :try_end_44
+      .catch Ljava/lang/Throwable; {:try_start_44 .. :try_end_44} :catch_46
+  
+--- 2092,2105 ----
+      move-object/from16 v0, v153
+  
+      invoke-static {v7, v0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
++ 
++     const-string v7, "miui.usb.service"
++ 
++     new-instance v9, Lcom/miui/server/MiuiUsbService;
++ 
++     invoke-direct {v9, v5}, Lcom/miui/server/MiuiUsbService;-><init>(Landroid/content/Context;)V
++ 
++     invoke-static {v7, v9}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
+      :try_end_44
+      .catch Ljava/lang/Throwable; {:try_start_44 .. :try_end_44} :catch_46
+  
+***************
+*** 2090,2095 ****
+      .end local v153           #usb:Lcom/android/server/usb/UsbService;
+      .restart local v152       #usb:Lcom/android/server/usb/UsbService;
+      :goto_2f
+      :try_start_45
+      const-string v7, "SystemServer"
+  
+--- 2108,2120 ----
+      .end local v153           #usb:Lcom/android/server/usb/UsbService;
+      .restart local v152       #usb:Lcom/android/server/usb/UsbService;
+      :goto_2f
++     const-string v7, "security"
++ 
++     new-instance v9, Lcom/miui/server/SecurityManagerService;
++ 
++     invoke-direct {v9, v5}, Lcom/miui/server/SecurityManagerService;-><init>(Landroid/content/Context;)V
++ 
++     invoke-static {v7, v9}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
+      :try_start_45
+      const-string v7, "SystemServer"
+  

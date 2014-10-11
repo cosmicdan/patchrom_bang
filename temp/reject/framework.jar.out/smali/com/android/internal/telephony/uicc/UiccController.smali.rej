@@ -1,0 +1,26 @@
+*** UiccController.smali	2014-10-11 10:19:59.728207954 +1100
+--- UiccController.smali	2014-10-11 10:17:00.420204065 +1100
+***************
+*** 997,1002 ****
+      .parameter "notifyType"
+  
+      .prologue
+      new-instance v5, Ljava/lang/StringBuilder;
+  
+      invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+--- 1028,1042 ----
+      .parameter "notifyType"
+  
+      .prologue
++     invoke-direct {p0}, Lcom/android/internal/telephony/uicc/UiccController;->skipNotification()Z
++ 
++     move-result v5
++ 
++     if-eqz v5, :cond_miui_0
++ 
++     return-void
++ 
++     :cond_miui_0
+      new-instance v5, Ljava/lang/StringBuilder;
+  
+      invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V

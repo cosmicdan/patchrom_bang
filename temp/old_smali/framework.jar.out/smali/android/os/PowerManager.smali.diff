@@ -1,0 +1,13 @@
+*** ./smali/android/os/PowerManager.smali	2014-10-11 10:20:47.008208980 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/os/PowerManager.smali	2014-10-11 10:17:44.556205022 +1100
+***************
+*** 14,19 ****
+--- 14,21 ----
+  # static fields
+  .field public static final ACQUIRE_CAUSES_WAKEUP:I = 0x10000000
+  
++ .field public static final BRIGHTNESS_DIM:I = 0x14
++ 
+  .field public static final BRIGHTNESS_OFF:I = 0x0
+  
+  .field public static final BRIGHTNESS_ON:I = 0xff

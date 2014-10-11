@@ -1,0 +1,18 @@
+*** ./smali/android/nfc/NfcManager.smali	2014-10-11 10:20:38.908208804 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/nfc/NfcManager.smali	2014-10-11 10:17:35.608204828 +1100
+***************
+*** 64,66 ****
+--- 64,76 ----
+  
+      return-object v0
+  .end method
++ 
++ .method public setPollDuration(I)I
++     .locals 1
++     .parameter "pollDurationMs"
++ 
++     .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ .end method

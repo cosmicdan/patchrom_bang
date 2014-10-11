@@ -1,0 +1,19 @@
+*** LockPatternKeyguardView$3.smali	2014-10-11 10:21:00.568209274 +1100
+--- LockPatternKeyguardView$3.smali	2014-10-11 10:17:59.424205345 +1100
+***************
+*** 408,414 ****
+      move-result v2
+  
+      .local v2, failedAttemptsBeforeWipe:I
+!     const/16 v0, 0xf
+  
+      .local v0, failedAttemptWarning:I
+      if-lez v2, :cond_2
+--- 424,430 ----
+      move-result v2
+  
+      .local v2, failedAttemptsBeforeWipe:I
+!     const/16 v0, 0x8
+  
+      .local v0, failedAttemptWarning:I
+      if-lez v2, :cond_2

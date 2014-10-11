@@ -1,0 +1,13 @@
+*** ./smali/android/os/Process.smali	2014-10-11 10:20:47.676208994 +1100
+--- /home/cosmicdan/patchrom_mtk/bang/temp/new_smali/framework.jar.out/./smali/android/os/Process.smali	2014-10-11 10:17:45.284205038 +1100
+***************
+*** 26,31 ****
+--- 26,33 ----
+  
+  .field public static final FIRST_SHARED_APPLICATION_GID:I = 0xc350
+  
++ .field public static final FM_RADIO_UID:I = 0x405
++ 
+  .field public static final GOOGLE_SHARED_APP_CONTENT:Ljava/lang/String; = "com.google.process.content"
+  
+  .field public static final LAST_APPLICATION_UID:I = 0x4e1f

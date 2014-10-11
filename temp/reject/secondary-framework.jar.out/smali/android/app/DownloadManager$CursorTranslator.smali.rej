@@ -1,0 +1,60 @@
+*** DownloadManager$CursorTranslator.smali	2014-10-11 10:21:05.764209386 +1100
+--- DownloadManager$CursorTranslator.smali	2014-10-11 10:18:04.364205452 +1100
+***************
+*** 301,307 ****
+      .parameter "status"
+  
+      .prologue
+!     invoke-direct {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
+  
+      move-result v0
+  
+--- 303,309 ----
+      .parameter "status"
+  
+      .prologue
+!     invoke-static {p1}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
+  
+      move-result v0
+  
+***************
+*** 333,351 ****
+      .end sparse-switch
+  .end method
+  
+! .method private translateStatus(I)I
+      .locals 1
+      .parameter "status"
+  
+      .prologue
+!     packed-switch p1, :pswitch_data_0
+  
+      :pswitch_0
+      sget-boolean v0, Landroid/app/DownloadManager$CursorTranslator;->$assertionsDisabled:Z
+  
+      if-nez v0, :cond_0
+  
+!     invoke-static {p1}, Landroid/provider/Downloads$Impl;->isStatusError(I)Z
+  
+      move-result v0
+  
+--- 335,353 ----
+      .end sparse-switch
+  .end method
+  
+! .method static translateStatus(I)I
+      .locals 1
+      .parameter "status"
+  
+      .prologue
+!     packed-switch p0, :pswitch_data_0
+  
+      :pswitch_0
+      sget-boolean v0, Landroid/app/DownloadManager$CursorTranslator;->$assertionsDisabled:Z
+  
+      if-nez v0, :cond_0
+  
+!     invoke-static {p0}, Landroid/provider/Downloads$Impl;->isStatusError(I)Z
+  
+      move-result v0
+  

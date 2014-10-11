@@ -1,0 +1,29 @@
+*** PackageParser.smali	2014-10-11 10:20:32.280208660 +1100
+--- PackageParser.smali	2014-10-11 10:17:28.324204670 +1100
+***************
+*** 6526,6534 ****
+      move-result v7
+  
+      .local v7, priority:I
+      move-object/from16 v0, p5
+  
+!     invoke-virtual {v0, v7}, Landroid/content/pm/PackageParser$IntentInfo;->setPriority(I)V
+  
+      const/4 v13, 0x0
+  
+--- 6527,6541 ----
+      move-result v7
+  
+      .local v7, priority:I
++     move/from16 v0, p4
++ 
++     invoke-static {v0, v7}, Landroid/content/pm/PackageParser$Injector;->checkPriority(II)I
++ 
++     move-result v13
++ 
+      move-object/from16 v0, p5
+  
+!     invoke-virtual {v0, v13}, Landroid/content/pm/PackageParser$IntentInfo;->setPriority(I)V
+  
+      const/4 v13, 0x0
+  

@@ -1,0 +1,21 @@
+*** ResolveInfo.smali	2014-10-11 10:20:32.948208675 +1100
+--- ResolveInfo.smali	2014-10-11 10:17:29.156204688 +1100
+***************
+*** 718,723 ****
+      move-result-object v2
+  
+      .local v2, dr:Landroid/graphics/drawable/Drawable;
+      if-eqz v2, :cond_1
+  
+      .end local v2           #dr:Landroid/graphics/drawable/Drawable;
+--- 719,728 ----
+      move-result-object v2
+  
+      .local v2, dr:Landroid/graphics/drawable/Drawable;
++     invoke-static {v2}, Lmiui/content/res/IconCustomizer;->generateIconStyleDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/BitmapDrawable;
++ 
++     move-result-object v2
++ 
+      if-eqz v2, :cond_1
+  
+      .end local v2           #dr:Landroid/graphics/drawable/Drawable;
